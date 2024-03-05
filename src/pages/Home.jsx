@@ -19,7 +19,6 @@ const Wrapper = styled.main`
   flex-direction: column;
   width: auto;
 
-  border: 1px solid black;
 `
 
 export default Home

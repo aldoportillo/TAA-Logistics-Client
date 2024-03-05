@@ -6,7 +6,7 @@ function Contact() {
   return (
     <Wrapper>
       <img src="https://taalogistics.com/gallery/17037850493.jpg" alt="contact banner" />
-
+      <h1>Contact Us</h1>
       Address:
       18949 Wolf Rd,
       Mokena, IL 60448
@@ -25,7 +25,6 @@ const Wrapper = styled.main`
     display: flex;
     flex-direction: column;
     width: auto;
-    border: 1px solid black;
 
     color: black;
   `

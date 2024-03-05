@@ -18,7 +18,6 @@ const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   width: auto;
-  border: 1px solid black;
 `
 
 export default Rates

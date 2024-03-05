@@ -19,6 +19,8 @@ function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <fieldset className="border p-4 rounded">
+        <legend className="font-semibold text-lg">Contact Us</legend>
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
         <input
@@ -69,6 +71,7 @@ function ContactForm() {
       >
         Submit
       </button>
+      </fieldset>
     </form>
   );
 }
