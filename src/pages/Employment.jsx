@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import EmploymentForm from '../components/EmploymentForm'
 
 function Employment() {
   return (
     <Wrapper>
       <img src="https://taalogistics.com/images/employment_header.png" alt="employment banner" />
+      <EmploymentForm />
     </Wrapper>
   )
 }
@@ -19,3 +21,7 @@ const Wrapper = styled.main`
   border: 1px solid black;
 `
 export default Employment
+
+
+
+
