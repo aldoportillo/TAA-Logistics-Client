@@ -14,10 +14,10 @@ function Home() {
 const Wrapper = styled.main`
 
   flex: 1;
-  
+  margin: 0 10vw;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: auto;
 
   border: 1px solid black;
 `

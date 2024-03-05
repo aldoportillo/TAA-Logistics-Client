@@ -85,11 +85,12 @@ function Services() {
 
 const Wrapper = styled.main`
 
+flex: 1;
 margin: 0 10vw;
 display: flex;
 flex-direction: column;
 align-items: center;
-
+width: auto;
 
 .cards-container {
   display: flex;
