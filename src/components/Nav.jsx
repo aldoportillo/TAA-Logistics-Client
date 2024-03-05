@@ -4,11 +4,11 @@ import styled from 'styled-components'
 function Nav() {
   return (
     <Wrapper>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/rates">Rates</Link>
-        <Link to="/employment">Employment</Link>
-        <Link to="/contact">Contact</Link>   
+        <Link to="/services">SERVICES</Link>
+        <Link to="/about">ABOUT</Link>
+        <Link to="/rates">RATES</Link>
+        <Link to="/employment">EMPLOYMENT</Link>
+        <Link to="/contact">CONTACT</Link>   
     </Wrapper>
   )
 }
