@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ContactForm from '../components/ContactForm'
+import GoogleMaps from '../components/GoogleMaps'
 
 function Contact() {
   return (
@@ -12,7 +13,7 @@ function Contact() {
       Mokena, IL 60448
 
 Phone: (708) 567-5424
-    
+    <GoogleMaps />
     <ContactForm />
     </Wrapper>
   )
