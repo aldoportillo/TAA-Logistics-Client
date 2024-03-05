@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import RatesForm from '../components/RatesForm'
 
 function Rates() {
   return (
     <Wrapper>
       <img src="https://taalogistics.com/images/rate_header.jpg" alt="rates banner" />
+      <RatesForm />
     </Wrapper>
   )
 }
