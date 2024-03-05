@@ -10,6 +10,12 @@
 
 }
 
+h2{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent-white)
+}
+
 body, html, #root {
   width: 100%;
 }

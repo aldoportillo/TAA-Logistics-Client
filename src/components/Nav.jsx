@@ -18,6 +18,7 @@ const Wrapper = styled.nav`
     display: flex; 
     gap: 20px;
     justify-content: space-around;
+    
 
     a{
         font-size: 1.2rem;

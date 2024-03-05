@@ -16,9 +16,11 @@ const Wrapper = styled.header`
   display: flex;
   height: 100px;
   align-items: center;
+  
+  padding: 0 0 0 30px;
 
   img {
-    max-height: 100px;
+    max-width: 150px;
   }
 
   background-color: var(--accent-white);

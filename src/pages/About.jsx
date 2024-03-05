@@ -24,6 +24,10 @@ const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   width: auto;
-  border: 1px solid black;
+
+  p{
+    padding: 10px 0;
+    font-size: 1.2rem;
+  }
 `
 export default About
