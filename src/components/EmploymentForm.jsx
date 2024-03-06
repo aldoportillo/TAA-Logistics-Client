@@ -54,6 +54,79 @@ const states = [
 ];
 
 function EmploymentForm() {
+
+  const [formData, setFormData] = React.useState({
+    "first-name": "",
+    "middle-initial": "",
+    "last-name": "",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "birthday": "",
+    "ssn": "",
+    "phone-number": "",
+    "email": "",
+    "residency-address-1": "",
+    "residency-city-1": "",
+    "residency-state-1": "",
+    "residency-zip-1": "",
+    "residency-address-2": "",
+    "residency-city-2": "",
+    "residency-state-2": "",
+    "residency-zip-2": "",
+    "residency-address-3": "",
+    "residency-city-3": "",
+    "residency-state-3": "",
+    "residency-zip-3": "",
+    "license-state": "",
+    "license-number": "",
+    "license-type": "",
+    "license-expiration-date": "",
+    "conviction-date-1": "",
+    "conviction-violation-1": "",
+    "conviction-state-1": "",
+    "conviction-penalty-1": "",
+    "conviction-date-2": "",
+    "conviction-violation-2": "",
+    "conviction-state-2": "",
+    "conviction-penalty-2": "",
+    "conviction-date-3": "",
+    "conviction-violation-3": "",
+    "conviction-state-3": "",
+    "conviction-penalty-3": "",
+    "experience-class-1": "",
+    "experience-type-1": "",
+    "experience-start-date-1": "",
+    "experience-end-date-1": "",
+    "experience-miles-1": "",
+    "experience-class-2": "",
+    "experience-type-2": "",
+    "experience-start-date-2": "",
+    "experience-end-date-2": "",
+    "experience-miles-2": "",
+    "experience-class-3": "",
+    "experience-type-3": "",
+    "experience-start-date-3": "",
+    "experience-end-date-3": "",
+    "experience-miles-3": "",
+    "accident-date-1": "",
+    "accident-nature-1": "",
+    "accident-fatalities-1": "",
+    "accident-injuries-1": "",
+    "accident-spill-1": "",
+    "accident-date-2": "",
+    "accident-nature-2": "",
+    "accident-fatalities-2": "",
+    "accident-injuries-2": "",
+    "accident-spill-2": "",
+    "accident-date-3": "",
+    "accident-nature-3": "",
+    "accident-fatalities-3": "",
+    "accident-injuries-3": "",
+    "accident-spill-3": "",
+  });
+
   return (
     <form className="space-y-6">
       {/* Personal Information */}
@@ -61,34 +134,34 @@ function EmploymentForm() {
         <legend className="font-semibold text-lg">Personal Information</legend>
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <label htmlFor="firstName" className="block">
+            <label htmlFor="first-name" className="block">
               First Name *
             </label>
             <input
               type="text"
-              id="firstName"
+              id="first-name"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
           <div>
-            <label htmlFor="middleInitial" className="block">
+            <label htmlFor="middle-initial" className="block">
               Middle Initial *
             </label>
             <input
               type="text"
-              id="middleInitial"
+              id="middle-initial"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
           <div>
-            <label htmlFor="lastName" className="block">
+            <label htmlFor="last-name" className="block">
               Last Name *
             </label>
             <input
               type="text"
-              id="lastName"
+              id="last-name"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
@@ -156,12 +229,12 @@ function EmploymentForm() {
             <input type="text" id="ssn" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
           </div>
           <div>
-            <label htmlFor="phoneNumber" className="block">
+            <label htmlFor="phone-number" className="block">
               Phone Number *
             </label>
             <input
               type="tel"
-              id="phoneNumber"
+              id="phone-number"
               required
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
@@ -180,7 +253,6 @@ function EmploymentForm() {
         </div>
       </fieldset>
 
-      {/* Residency History */}
       <fieldset className="border p-4 rounded">
         <legend className="font-semibold text-lg">
           Residency History (Past 3 Years)
@@ -188,134 +260,132 @@ function EmploymentForm() {
         <div className="space-y-4">
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <label htmlFor="residencyAddress1" className="block">
+              <label htmlFor="residency-address-1" className="block">
                 Address
               </label>
               <input
                 type="text"
-                id="residencyAddress1"
+                id="residency-address-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="residencyCity1" className="block">
+              <label htmlFor="residency-city-1" className="block">
                 City
               </label>
               <input
                 type="text"
-                id="residencyCity1"
+                id="residency-city-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="residencyState1" className="block">
+              <label htmlFor="residency-state-1" className="block">
                 State
               </label>
-
-<select id="residencyState1" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-              {states.map((state) => (
-                <option key={state} value={state}>
-                  {state}
-                </option>
-              ))}
-            </select>
+              <select id="residency-state-1" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                {states.map((state) => (
+                  <option key={state} value={state}>
+                    {state}
+                  </option>
+                ))}
+              </select>
             </div>
             <div>
-              <label htmlFor="residencyZip1" className="block">
+              <label htmlFor="residency-zip-1" className="block">
                 Zip
               </label>
               <input
                 type="text"
-                id="residencyZip1"
+                id="residency-zip-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
           </div>
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <label htmlFor="residencyAddress2" className="block">
+              <label htmlFor="residency-address-2" className="block">
                 Address
               </label>
               <input
                 type="text"
-                id="residencyAddress2"
+                id="residency-address-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="residencyCity2" className="block">
+              <label htmlFor="residency-city-2" className="block">
                 City
               </label>
               <input
                 type="text"
-                id="residencyCity2"
+                id="residency-city-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="residencyState2" className="block">
+              <label htmlFor="residency-state-2" className="block">
                 State
               </label>
-
-<select id="residencyState2" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-              {states.map((state) => (
-                <option key={state} value={state}>
-                  {state}
-                </option>
-              ))}
-            </select>
+              <select id="residency-state-2" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                {states.map((state) => (
+                  <option key={state} value={state}>
+                    {state}
+                  </option>
+                ))}
+              </select>
             </div>
             <div>
-              <label htmlFor="residencyZip2" className="block">
+              <label htmlFor="residency-zip-2" className="block">
                 Zip
               </label>
               <input
                 type="text"
-                id="residencyZip2"
+                id="residency-zip-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
           </div>
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <label htmlFor="residencyAddress3" className="block">
+              <label htmlFor="residency-address-3" className="block">
                 Address
               </label>
               <input
                 type="text"
-                id="residencyAddress3"
+                id="residency-address-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="residencyCity3" className="block">
+              <label htmlFor="residency-city-3" className="block">
                 City
               </label>
               <input
                 type="text"
-                id="residencyCity3"
+                id="residency-city-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="residencyState3" className="block">
+              <label htmlFor="residency-state-3" className="block">
                 State
               </label>
-              <select id="residencyState3" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-              {states.map((state) => (
-                <option key={state} value={state}>
-                  {state}
-                </option>
-              ))}
-            </select>
+              <select id="residency-state-3" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                {states.map((state) => (
+                  <option key={state} value={state}>
+                    {state}
+                  </option>
+                ))}
+              </select>
             </div>
             <div>
-              <label htmlFor="residencyZip3" className="block">
+              <label htmlFor="residency-zip-3" className="block">
                 Zip
               </label>
               <input
                 type="text"
-                id="residencyZip3"
+                id="residency-zip-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -334,10 +404,10 @@ function EmploymentForm() {
         </p>
         <div className="grid grid-cols-4 gap-4">
           <div>
-            <label htmlFor="licenseState" className="block">
+            <label htmlFor="license-state" className="block">
               State
             </label>
-            <select id="licenseState" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            <select id="license-state" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
               {states.map((state) => (
                 <option key={state} value={state}>
                   {state}
@@ -346,32 +416,32 @@ function EmploymentForm() {
             </select>
           </div>
           <div>
-            <label htmlFor="licenseNumber" className="block">
+            <label htmlFor="license-number" className="block">
               License Number
             </label>
             <input
               type="text"
-              id="licenseNumber"
+              id="license-number"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
           <div>
-            <label htmlFor="licenseType" className="block">
+            <label htmlFor="license-type" className="block">
               Type
             </label>
             <input
               type="text"
-              id="licenseType"
+              id="license-type"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
           <div>
-            <label htmlFor="licenseExpirationDate" className="block">
+            <label htmlFor="license-expiration-date" className="block">
               Expiration Date
             </label>
             <input
               type="date"
-              id="licenseExpirationDate"
+              id="license-expiration-date"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -386,30 +456,30 @@ function EmploymentForm() {
         <div className="space-y-4">
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <label htmlFor="convictionDate1" className="block">
+              <label htmlFor="conviction-date-1" className="block">
                 Date
               </label>
               <input
                 type="date"
-                id="convictionDate1"
+                id="conviction-date-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="convictionViolation1" className="block">
+              <label htmlFor="conviction-violation-1" className="block">
                 Violation
               </label>
               <input
                 type="text"
-                id="convictionViolation1"
+                id="conviction-violation-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="convictionState1" className="block">
+              <label htmlFor="conviction-state-1" className="block">
                 State
               </label>
-              <select id="convictionState1" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="conviction-state-1" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
               {states.map((state) => (
                 <option key={state} value={state}>
                   {state}
@@ -418,42 +488,42 @@ function EmploymentForm() {
             </select>
             </div>
             <div>
-              <label htmlFor="convictionPenalty1" className="block">
+              <label htmlFor="conviction-penalty-1" className="block">
                 Penalty
               </label>
               <input
                 type="text"
-                id="convictionPenalty1"
+                id="conviction-penalty-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
           </div>
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <label htmlFor="convictionDate2" className="block">
+              <label htmlFor="conviction-date-2" className="block">
                 Date
               </label>
               <input
                 type="date"
-                id="convictionDate2"
+                id="conviction-date-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="convictionViolation2" className="block">
+              <label htmlFor="conviction-violation-2" className="block">
                 Violation
               </label>
               <input
                 type="text"
-                id="convictionViolation2"
+                id="conviction-violation-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="convictionState2" className="block">
+              <label htmlFor="conviction-state-2" className="block">
                 State
               </label>
-              <select id="convictionState2" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="conviction-state-2" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
               {states.map((state) => (
                 <option key={state} value={state}>
                   {state}
@@ -462,42 +532,42 @@ function EmploymentForm() {
             </select>
             </div>
             <div>
-              <label htmlFor="convictionPenalty2" className="block">
+              <label htmlFor="conviction-penalty-2" className="block">
                 Penalty
               </label>
               <input
                 type="text"
-                id="convictionPenalty2"
+                id="conviction-penalty-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
           </div>
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <label htmlFor="convictionDate3" className="block">
+              <label htmlFor="conviction-date-3" className="block">
                 Date
               </label>
               <input
                 type="date"
-                id="convictionDate3"
+                id="conviction-date-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="convictionViolation3" className="block">
+              <label htmlFor="conviction-violation-3" className="block">
                 Violation
               </label>
               <input
                 type="text"
-                id="convictionViolation3"
+                id="conviction-violation-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="convictionState3" className="block">
+              <label htmlFor="conviction-state-3" className="block">
                 State
               </label>
-              <select id="convictionState3" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="conviction-state-3" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
               {states.map((state) => (
                 <option key={state} value={state}>
                   {state}
@@ -506,175 +576,175 @@ function EmploymentForm() {
             </select>
             </div>
             <div>
-              <label htmlFor="convictionPenalty3" className="block">
+              <label htmlFor="conviction-penalty-3" className="block">
                 Penalty
               </label>
               <input
                 type="text"
-                id="convictionPenalty3"
+                id="conviction-penalty-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
           </div>
         </div>
       </fieldset>
-
+      
       {/* Driving Experience */}
       <fieldset className="border p-4 rounded">
         <legend className="font-semibold text-lg">Driving Experience</legend>
         <div className="space-y-4">
           <div className="grid grid-cols-5 gap-4">
             <div>
-              <label htmlFor="experienceClass1" className="block">
+              <label htmlFor="experience-class-1" className="block">
                 Class of Equipment
               </label>
               <input
                 type="text"
-                id="experienceClass1"
+                id="experience-class-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceType1" className="block">
+              <label htmlFor="experience-type-1" className="block">
                 Type of Equipment
               </label>
               <input
                 type="text"
-                id="experienceType1"
+                id="experience-type-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceStartDate1" className="block">
+              <label htmlFor="experience-start-date-1" className="block">
                 Start Date
               </label>
               <input
                 type="date"
-                id="experienceStartDate1"
+                id="experience-start-date-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceEndDate1" className="block">
+              <label htmlFor="experience-end-date-1" className="block">
                 End Date
               </label>
               <input
                 type="date"
-                id="experienceEndDate1"
+                id="experience-end-date-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceMiles1" className="block">
+              <label htmlFor="experience-miles-1" className="block">
                 Approx. Miles
               </label>
               <input
                 type="number"
-                id="experienceMiles1"
+                id="experience-miles-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
           </div>
           <div className="grid grid-cols-5 gap-4">
             <div>
-              <label htmlFor="experienceClass2" className="block">
+              <label htmlFor="experience-class-2" className="block">
                 Class of Equipment
               </label>
               <input
                 type="text"
-                id="experienceClass2"
+                id="experience-class-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceType2" className="block">
+              <label htmlFor="experience-type-2" className="block">
                 Type of Equipment
               </label>
               <input
                 type="text"
-                id="experienceType2"
+                id="experience-type-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceStartDate2" className="block">
+              <label htmlFor="experience-start-date-2" className="block">
                 Start Date
               </label>
               <input
                 type="date"
-                id="experienceStartDate2"
+                id="experience-start-date-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceEndDate2" className="block">
+              <label htmlFor="experience-end-date-2" className="block">
                 End Date
               </label>
               <input
                 type="date"
-                id="experienceEndDate2"
+                id="experience-end-date-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceMiles2" className="block">
+              <label htmlFor="experience-miles-2" className="block">
                 Approx. Miles
               </label>
               <input
                 type="number"
-                id="experienceMiles2"
+                id="experience-miles-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
           </div>
           <div className="grid grid-cols-5 gap-4">
             <div>
-              <label htmlFor="experienceClass3" className="block">
+              <label htmlFor="experience-class-3" className="block">
                 Class of Equipment
               </label>
               <input
                 type="text"
-                id="experienceClass3"
+                id="experience-class-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceType3" className="block">
+              <label htmlFor="experience-type-3" className="block">
                 Type of Equipment
               </label>
               <input
                 type="text"
-                id="experienceType3"
+                id="experience-type-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceStartDate3" className="block">
+              <label htmlFor="experience-start-date-3" className="block">
                 Start Date
               </label>
               <input
                 type="date"
-                id="experienceStartDate3"
+                id="experience-start-date-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceEndDate3" className="block">
+              <label htmlFor="experience-end-date-3" className="block">
                 End Date
               </label>
               <input
                 type="date"
-                id="experienceEndDate3"
+                id="experience-end-date-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="experienceMiles3" className="block">
+              <label htmlFor="experience-miles-3" className="block">
                 Approx. Miles
               </label>
               <input
                 type="number"
-                id="experienceMiles3"
+                id="experience-miles-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -683,6 +753,7 @@ function EmploymentForm() {
       </fieldset>
 
       {/* Accident Record */}
+
       <fieldset className="border p-4 rounded">
         <legend className="font-semibold text-lg">
           Accident Record (Past 3 Years)
@@ -690,50 +761,50 @@ function EmploymentForm() {
         <div className="space-y-4">
           <div className="grid grid-cols-5 gap-4">
             <div>
-              <label htmlFor="accidentDate1" className="block">
+              <label htmlFor="accident-date-1" className="block">
                 Date
               </label>
               <input
                 type="date"
-                id="accidentDate1"
+                id="accident-date-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentNature1" className="block">
+              <label htmlFor="accident-nature-1" className="block">
                 Nature of Accident
               </label>
               <input
                 type="text"
-                id="accidentNature1"
+                id="accident-nature-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentFatalities1" className="block">
+              <label htmlFor="accident-fatalities-1" className="block">
                 Fatalities
               </label>
               <input
                 type="number"
-                id="accidentFatalities1"
+                id="accident-fatalities-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentInjuries1" className="block">
+              <label htmlFor="accident-injuries-1" className="block">
                 Injuries
               </label>
               <input
                 type="number"
-                id="accidentInjuries1"
+                id="accident-injuries-1"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentSpill1" className="block">
+              <label htmlFor="accident-spill-1" className="block">
                 Chemical Spill
               </label>
-              <select id="accidentSpill1" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="accident-spill-1" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -741,50 +812,50 @@ function EmploymentForm() {
           </div>
           <div className="grid grid-cols-5 gap-4">
             <div>
-              <label htmlFor="accidentDate2" className="block">
+              <label htmlFor="accident-date-2" className="block">
                 Date
               </label>
               <input
                 type="date"
-                id="accidentDate2"
+                id="accident-date-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentNature2" className="block">
+              <label htmlFor="accident-nature-2" className="block">
                 Nature of Accident
               </label>
               <input
                 type="text"
-                id="accidentNature2"
+                id="accident-nature-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentFatalities2" className="block">
+              <label htmlFor="accident-fatalities-2" className="block">
                 Fatalities
               </label>
               <input
                 type="number"
-                id="accidentFatalities2"
+                id="accident-fatalities-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentInjuries2" className="block">
+              <label htmlFor="accident-injuries-2" className="block">
                 Injuries
               </label>
               <input
                 type="number"
-                id="accidentInjuries2"
+                id="accident-injuries-2"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentSpill2" className="block">
+              <label htmlFor="accident-spill-2" className="block">
                 Chemical Spill
               </label>
-              <select id="accidentSpill2" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="accident-spill-2" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -792,50 +863,50 @@ function EmploymentForm() {
           </div>
           <div className="grid grid-cols-5 gap-4">
             <div>
-              <label htmlFor="accidentDate3" className="block">
+              <label htmlFor="accident-date-3" className="block">
                 Date
               </label>
               <input
                 type="date"
-                id="accidentDate3"
+                id="accident-date-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentNature3" className="block">
+              <label htmlFor="accident-nature-3" className="block">
                 Nature of Accident
               </label>
               <input
                 type="text"
-                id="accidentNature3"
+                id="accident-nature-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentFatalities3" className="block">
+              <label htmlFor="accident-fatalities-3" className="block">
                 Fatalities
               </label>
               <input
                 type="number"
-                id="accidentFatalities3"
+                id="accident-fatalities-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentInjuries3" className="block">
+              <label htmlFor="accident-injuries-3" className="block">
                 Injuries
               </label>
               <input
                 type="number"
-                id="accidentInjuries3"
+                id="accident-injuries-3"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
-              <label htmlFor="accidentSpill3" className="block">
+              <label htmlFor="accident-spill-3" className="block">
                 Chemical Spill
               </label>
-              <select id="accidentSpill3" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="accident-spill-3" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
