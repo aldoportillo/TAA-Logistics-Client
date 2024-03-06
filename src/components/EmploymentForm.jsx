@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 
 const states = [
@@ -127,8 +128,25 @@ function EmploymentForm() {
     "accident-spill-3": "",
   });
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post("/api/employment", formData)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    };
+
+
   return (
-    <form className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       {/* Personal Information */}
       <fieldset className="border p-4 rounded">
         <legend className="font-semibold text-lg">Personal Information</legend>
@@ -141,6 +159,8 @@ function EmploymentForm() {
               type="text"
               id="first-name"
               required
+              value={formData["first-name"]}
+              onChange={handleChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -152,6 +172,8 @@ function EmploymentForm() {
               type="text"
               id="middle-initial"
               required
+              value={formData["middle-initial"]}
+              onChange={handleChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -163,6 +185,8 @@ function EmploymentForm() {
               type="text"
               id="last-name"
               required
+              onChange={handleChange}
+              value={formData["last-name"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -174,6 +198,8 @@ function EmploymentForm() {
               type="text"
               id="address"
               required
+              onChange={handleChange}
+              value={formData["address"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -185,6 +211,8 @@ function EmploymentForm() {
               type="text"
               id="city"
               required
+              onChange={handleChange}
+              value={formData["city"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -194,7 +222,7 @@ function EmploymentForm() {
             </label>
             <select id="state" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
               {states.map((state) => (
-                <option key={state} value={state}>
+                <option key={state} value={formData["state"]} onChange={handleChange}>
                   {state}
                 </option>
               ))}
@@ -208,6 +236,8 @@ function EmploymentForm() {
               type="text"
               id="zip"
               required
+              onChange={handleChange}
+              value={formData["zip"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -219,6 +249,8 @@ function EmploymentForm() {
               type="date"
               id="birthday"
               required
+              onChange={handleChange}
+              value={formData["birthday"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -226,7 +258,7 @@ function EmploymentForm() {
             <label htmlFor="ssn" className="block">
               SSN
             </label>
-            <input type="text" id="ssn" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
+            <input type="text" id="ssn" onChange={handleChange} value={formData["ssn"]} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
           </div>
           <div>
             <label htmlFor="phone-number" className="block">
@@ -236,6 +268,8 @@ function EmploymentForm() {
               type="tel"
               id="phone-number"
               required
+              onChange={handleChange}
+              value={formData["phone-number"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -247,6 +281,8 @@ function EmploymentForm() {
               type="email"
               id="email"
               required
+              onChange={handleChange}
+              value={formData["email"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -266,6 +302,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="residency-address-1"
+                onChange={handleChange}
+                value={formData["residency-address-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -276,6 +314,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="residency-city-1"
+                onChange={handleChange}
+                value={formData["residency-city-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -283,7 +323,7 @@ function EmploymentForm() {
               <label htmlFor="residency-state-1" className="block">
                 State
               </label>
-              <select id="residency-state-1" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="residency-state-1" required onChange={handleChange} value={formData["residency-state-1"]} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 {states.map((state) => (
                   <option key={state} value={state}>
                     {state}
@@ -298,6 +338,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="residency-zip-1"
+                onChange={handleChange}
+                value={formData["residency-zip-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -310,6 +352,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="residency-address-2"
+                onChange={handleChange}
+                value={formData["residency-address-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -320,6 +364,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="residency-city-2"
+                onChange={handleChange}
+                value={formData["residency-city-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -327,7 +373,7 @@ function EmploymentForm() {
               <label htmlFor="residency-state-2" className="block">
                 State
               </label>
-              <select id="residency-state-2" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="residency-state-2" onChange={handleChange} value={formData["residency-state-2"]} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 {states.map((state) => (
                   <option key={state} value={state}>
                     {state}
@@ -342,6 +388,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="residency-zip-2"
+                onChange={handleChange}
+                value={formData["residency-zip-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -354,6 +402,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="residency-address-3"
+                onChange={handleChange}
+                value={formData["residency-address-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -364,6 +414,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="residency-city-3"
+                onChange={handleChange}
+                value={formData["residency-city-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -371,7 +423,7 @@ function EmploymentForm() {
               <label htmlFor="residency-state-3" className="block">
                 State
               </label>
-              <select id="residency-state-3" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="residency-state-3" onChange={handleChange} value={formData["residency-state-3"]} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 {states.map((state) => (
                   <option key={state} value={state}>
                     {state}
@@ -386,6 +438,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="residency-zip-3"
+                onChange={handleChange}
+                value={formData["residency-zip-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -407,7 +461,7 @@ function EmploymentForm() {
             <label htmlFor="license-state" className="block">
               State
             </label>
-            <select id="license-state" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            <select id="license-state" required onChange={handleChange} value={formData["license-state"]} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
               {states.map((state) => (
                 <option key={state} value={state}>
                   {state}
@@ -422,6 +476,8 @@ function EmploymentForm() {
             <input
               type="text"
               id="license-number"
+              onChange={handleChange}
+              value={formData["license-number"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -432,6 +488,8 @@ function EmploymentForm() {
             <input
               type="text"
               id="license-type"
+              onChange={handleChange}
+              value={formData["license-type"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -442,6 +500,8 @@ function EmploymentForm() {
             <input
               type="date"
               id="license-expiration-date"
+              onChange={handleChange}
+              value={formData["license-expiration-date"]}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
@@ -462,6 +522,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="conviction-date-1"
+                onChange={handleChange}
+                value={formData["conviction-date-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -472,6 +534,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="conviction-violation-1"
+                onChange={handleChange}
+                value={formData["conviction-violation-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -479,7 +543,7 @@ function EmploymentForm() {
               <label htmlFor="conviction-state-1" className="block">
                 State
               </label>
-              <select id="conviction-state-1" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="conviction-state-1" required onChange={handleChange} value={formData["conviction-state-1"]} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
               {states.map((state) => (
                 <option key={state} value={state}>
                   {state}
@@ -494,6 +558,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="conviction-penalty-1"
+                onChange={handleChange}
+                value={formData["conviction-penalty-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -506,6 +572,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="conviction-date-2"
+                onChange={handleChange}
+                value={formData["conviction-date-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -516,6 +584,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="conviction-violation-2"
+                onChange={handleChange}
+                value={formData["conviction-violation-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -523,7 +593,7 @@ function EmploymentForm() {
               <label htmlFor="conviction-state-2" className="block">
                 State
               </label>
-              <select id="conviction-state-2" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="conviction-state-2" onChange={handleChange} value={formData["conviction-state-2"]} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
               {states.map((state) => (
                 <option key={state} value={state}>
                   {state}
@@ -538,6 +608,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="conviction-penalty-2"
+                onChange={handleChange}
+                value={formData["conviction-penalty-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -550,6 +622,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="conviction-date-3"
+                onChange={handleChange}
+                value={formData["conviction-date-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -560,6 +634,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="conviction-violation-3"
+                onChange={handleChange}
+                value={formData["conviction-violation-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -567,7 +643,7 @@ function EmploymentForm() {
               <label htmlFor="conviction-state-3" className="block">
                 State
               </label>
-              <select id="conviction-state-3" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="conviction-state-3" required onChange={handleChange} value={formData["conviction-state-3"]} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
               {states.map((state) => (
                 <option key={state} value={state}>
                   {state}
@@ -582,13 +658,15 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="conviction-penalty-3"
+                onChange={handleChange}
+                value={formData["conviction-penalty-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
           </div>
         </div>
       </fieldset>
-      
+
       {/* Driving Experience */}
       <fieldset className="border p-4 rounded">
         <legend className="font-semibold text-lg">Driving Experience</legend>
@@ -601,6 +679,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="experience-class-1"
+                onChange={handleChange}
+                value={formData["experience-class-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -611,6 +691,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="experience-type-1"
+                onChange={handleChange}
+                value={formData["experience-type-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -621,6 +703,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="experience-start-date-1"
+                onChange={handleChange}
+                value={formData["experience-start-date-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -631,6 +715,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="experience-end-date-1"
+                onChange={handleChange}
+                value={formData["experience-end-date-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -641,6 +727,8 @@ function EmploymentForm() {
               <input
                 type="number"
                 id="experience-miles-1"
+                onChange={handleChange}
+                value={formData["experience-miles-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -653,6 +741,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="experience-class-2"
+                onChange={handleChange}
+                value={formData["experience-class-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -663,6 +753,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="experience-type-2"
+                onChange={handleChange}
+                value={formData["experience-type-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -673,6 +765,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="experience-start-date-2"
+                onChange={handleChange}
+                value={formData["experience-start-date-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -683,6 +777,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="experience-end-date-2"
+                onChange={handleChange}
+                value={formData["experience-end-date-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -693,6 +789,8 @@ function EmploymentForm() {
               <input
                 type="number"
                 id="experience-miles-2"
+                onChange={handleChange}
+                value={formData["experience-miles-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -705,6 +803,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="experience-class-3"
+                onChange={handleChange}
+                value={formData["experience-class-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -715,6 +815,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="experience-type-3"
+                onChange={handleChange}
+                value={formData["experience-type-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -725,6 +827,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="experience-start-date-3"
+                onChange={handleChange}
+                value={formData["experience-start-date-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -735,6 +839,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="experience-end-date-3"
+                onChange={handleChange}
+                value={formData["experience-end-date-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -745,6 +851,8 @@ function EmploymentForm() {
               <input
                 type="number"
                 id="experience-miles-3"
+                onChange={handleChange}
+                value={formData["experience-miles-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -767,6 +875,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="accident-date-1"
+                onChange={handleChange}
+                value={formData["accident-date-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -777,6 +887,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="accident-nature-1"
+                onChange={handleChange}
+                value={formData["accident-nature-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -787,6 +899,8 @@ function EmploymentForm() {
               <input
                 type="number"
                 id="accident-fatalities-1"
+                onChange={handleChange}
+                value={formData["accident-fatalities-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -797,6 +911,8 @@ function EmploymentForm() {
               <input
                 type="number"
                 id="accident-injuries-1"
+                onChange={handleChange}
+                value={formData["accident-injuries-1"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -804,7 +920,7 @@ function EmploymentForm() {
               <label htmlFor="accident-spill-1" className="block">
                 Chemical Spill
               </label>
-              <select id="accident-spill-1" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="accident-spill-1" onChange={handleChange} value={formData["accident-spill-1"]} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -818,6 +934,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="accident-date-2"
+                onChange={handleChange}
+                value={formData["accident-date-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -828,6 +946,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="accident-nature-2"
+                onChange={handleChange}
+                value={formData["accident-nature-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -838,6 +958,8 @@ function EmploymentForm() {
               <input
                 type="number"
                 id="accident-fatalities-2"
+                onChange={handleChange}
+                value={formData["accident-fatalities-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -848,6 +970,8 @@ function EmploymentForm() {
               <input
                 type="number"
                 id="accident-injuries-2"
+                onChange={handleChange}
+                value={formData["accident-injuries-2"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -855,7 +979,7 @@ function EmploymentForm() {
               <label htmlFor="accident-spill-2" className="block">
                 Chemical Spill
               </label>
-              <select id="accident-spill-2" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="accident-spill-2" onChange={handleChange} value={formData["accident-spill-2"]} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -869,6 +993,8 @@ function EmploymentForm() {
               <input
                 type="date"
                 id="accident-date-3"
+                onChange={handleChange}
+                value={formData["accident-date-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -879,6 +1005,8 @@ function EmploymentForm() {
               <input
                 type="text"
                 id="accident-nature-3"
+                onChange={handleChange}
+                value={formData["accident-nature-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -889,6 +1017,8 @@ function EmploymentForm() {
               <input
                 type="number"
                 id="accident-fatalities-3"
+                onChange={handleChange}
+                value={formData["accident-fatalities-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -899,6 +1029,8 @@ function EmploymentForm() {
               <input
                 type="number"
                 id="accident-injuries-3"
+                onChange={handleChange}
+                value={formData["accident-injuries-3"]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
@@ -906,7 +1038,7 @@ function EmploymentForm() {
               <label htmlFor="accident-spill-3" className="block">
                 Chemical Spill
               </label>
-              <select id="accident-spill-3" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <select id="accident-spill-3" onChange={handleChange} value={formData["accident-spill-3"]} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
