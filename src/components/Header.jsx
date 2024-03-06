@@ -16,6 +16,7 @@ const Wrapper = styled.header`
   display: flex;
   height: 100px;
   align-items: center;
+  background-color: var(--accent-white);
   
   padding: 0 0 0 30px;
 

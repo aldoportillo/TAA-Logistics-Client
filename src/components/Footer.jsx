@@ -87,6 +87,7 @@ const Wrapper = styled.footer`
   background-color: var(--accent-white);
   padding: 0 30px;
 
+
   .row{
     display: flex;
     flex-direction: row;
