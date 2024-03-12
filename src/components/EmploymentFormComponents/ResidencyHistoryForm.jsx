@@ -2,6 +2,17 @@ import React from "react";
 import { states } from "../../data/states";
 
 function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
+
+  //Make sure residency_address_1, residency_city_1, residency_state_1, residency_zip_1, residency_address_2, residency_city_2, residency_state_2, residency_zip_2, residency_address_3, residency_city_3, residency_state_3, and residency_zip_3 are filled in
+  const isFormValid = () => {
+    return (
+      formData.residency_address_1.length > 0 &&
+      formData.residency_city_1.length > 0 &&
+      formData.residency_state_1.length > 0 &&
+      formData.residency_zip_1.length > 0
+    );
+  }
+
   return (
     <>
       <fieldset className="border p-4 rounded">
@@ -46,7 +57,7 @@ function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               >
                 {states.map((state) => (
-                  <option key={state} value={state}>
+                  <option key={state} value={state} default={null}>
                     {state}
                   </option>
                 ))}
@@ -189,6 +200,7 @@ function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
         <button
           className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           onClick={(e) => setFormSection((prevValue) => prevValue + 1)}
+          disabled={!isFormValid()}
         >
           Next
         </button>
