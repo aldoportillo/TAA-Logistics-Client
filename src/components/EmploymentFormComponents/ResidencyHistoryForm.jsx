@@ -1,9 +1,14 @@
-import React from "react";
+import PropTypes from "prop-types";
 import { states } from "../../data/states";
+
+ResidencyHistoryForm.propTypes = {
+  formData: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  setFormSection: PropTypes.func.isRequired,
+};
 
 function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
 
-  //Make sure residency_address_1, residency_city_1, residency_state_1, residency_zip_1, residency_address_2, residency_city_2, residency_state_2, residency_zip_2, residency_address_3, residency_city_3, residency_state_3, and residency_zip_3 are filled in
   const isFormValid = () => {
     return (
       formData.residency_address_1.length > 0 &&
@@ -193,13 +198,13 @@ function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
       <div className="grid grid-cols-2 gap-4">
         <button
           className="bg-gray-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          onClick={(e) => setFormSection((prevValue) => prevValue - 1)}
+          onClick={() => setFormSection((prevValue) => prevValue - 1)}
         >
           Previous
         </button>
         <button
           className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          onClick={(e) => setFormSection((prevValue) => prevValue + 1)}
+          onClick={() => setFormSection((prevValue) => prevValue + 1)}
           disabled={!isFormValid()}
         >
           Next

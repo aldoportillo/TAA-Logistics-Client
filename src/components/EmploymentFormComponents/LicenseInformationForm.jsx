@@ -1,5 +1,16 @@
-import React from "react";
 import { states } from "../../data/states";
+import PropTypes from "prop-types";
+
+LicenseInformationForm.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  formData: PropTypes.shape({
+    license_state: PropTypes.string.isRequired,
+    license_number: PropTypes.string.isRequired,
+    license_type: PropTypes.string.isRequired,
+    license_expiration_date: PropTypes.string.isRequired,
+  }).isRequired,
+  setFormSection: PropTypes.func.isRequired,
+};
 
 function LicenseInformationForm({ handleChange, formData, setFormSection }) {
   
@@ -17,8 +28,8 @@ function LicenseInformationForm({ handleChange, formData, setFormSection }) {
       <fieldset className="border p-4 rounded">
         <legend className="font-semibold text-lg">License Information</legend>
         <p className="text-sm mb-4">
-          Section 383.21 FMCSR states "No person who operates a commercial motor
-          vehicle shall at any time have more than one driver's license". I
+          Section 383.21 FMCSR states &quot;No person who operates a commercial motor
+          vehicle shall at any time have more than one driver&apos;s license&quot;. I
           certify that I do not have more then one motor vehicle license, the
           information for which is listed below.
         </p>
@@ -82,13 +93,13 @@ function LicenseInformationForm({ handleChange, formData, setFormSection }) {
       <div className="grid grid-cols-2 gap-4">
         <button
           className="bg-gray-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          onClick={(e) => setFormSection((prevValue) => prevValue - 1)}
+          onClick={() => setFormSection((prevValue) => prevValue - 1)}
         >
           Previous
         </button>
         <button
           className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          onClick={(e) => setFormSection((prevValue) => prevValue + 1)}
+          onClick={() => setFormSection((prevValue) => prevValue + 1)}
           disabled={!isFormValid()}
         >
           Next

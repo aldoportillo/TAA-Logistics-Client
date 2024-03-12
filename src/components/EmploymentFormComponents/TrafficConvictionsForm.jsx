@@ -1,5 +1,11 @@
-import React from "react";
 import { states } from "../../data/states";
+import PropTypes from "prop-types";
+
+TrafficConvictionsForm.propTypes = {
+  formData: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  setFormSection: PropTypes.func.isRequired,
+};
 
 function TrafficConvictionsForm({ formData, handleChange, setFormSection }) {
   return (
@@ -182,13 +188,13 @@ function TrafficConvictionsForm({ formData, handleChange, setFormSection }) {
       <div className="grid grid-cols-2 gap-4">
         <button
           className="bg-gray-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          onClick={(e) => setFormSection((prevValue) => prevValue - 1)}
+          onClick={() => setFormSection((prevValue) => prevValue - 1)}
         >
           Previous
         </button>
         <button
           className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          onClick={(e) => setFormSection((prevValue) => prevValue + 1)}
+          onClick={() => setFormSection((prevValue) => prevValue + 1)}
         >
           Next
         </button>

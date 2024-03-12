@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
 import { states } from "../../data/states";
+import PropTypes from "prop-types";
+
+PersonalInformationForm.propTypes = {
+  formData: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  setFormSection: PropTypes.func.isRequired,
+};
 
 function PersonalInformationForm({ formData, handleChange, setFormSection }) {
 
-
-  //Make sure first_name, middle_initial, last_name, address, city, state, zip, birthday, phone_number, and email are filled in
 
   const isFormValid = () => {
     return (
@@ -21,10 +25,6 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
   }
 
 
-  useEffect(() => {
-    console.log(isFormValid())
-    console.log(formData)
-  })
   return (
     <>
       <fieldset className="border p-4 rounded">
@@ -184,7 +184,7 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
 
       <button
         className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-        onClick={(e) => setFormSection((prevValue) => prevValue + 1)}
+        onClick={() => setFormSection((prevValue) => prevValue + 1)}
         disabled={!isFormValid()}
       >
         Next

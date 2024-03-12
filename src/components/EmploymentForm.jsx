@@ -112,10 +112,8 @@ function EmploymentForm() {
  
       { formSection == 3 && <TrafficConvictionsForm formData={formData} setFormSection={setFormSection} handleChange={handleChange}/> }
 
-      { formSection == 4 && <AccidentRecordForm formData={formData} handleChange={handleChange}/> } 
+      { formSection == 4 && <AccidentRecordForm formData={formData} setFormSection={setFormSection} handleChange={handleChange}/> } 
       
-
-
     </form>
   );
 }
