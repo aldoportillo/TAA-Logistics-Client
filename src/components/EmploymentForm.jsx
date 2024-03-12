@@ -8,6 +8,8 @@ import AccidentRecordForm from "./EmploymentFormComponents/AccidentRecordForm";
 
 
 function EmploymentForm() {
+
+  const [ formSection, setFormSection ] = useState(0)
   const [formData, setFormData] = React.useState({
     first_name: "",
     middle_initial: "",
@@ -99,19 +101,6 @@ function EmploymentForm() {
       });
   };
 
-  const paginate = {
-    0: PersonalInformationForm,
-    1: ResidencyHistoryForm,
-    2: LicenseInformationForm,
-    3: TrafficConvictionsForm,
-    4: AccidentRecordForm
-  }
-
-  const [ formSection, setFormSection ] = useState(0)
-
-
-  console.log(formSection)
-  
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
 

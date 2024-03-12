@@ -1,10 +1,10 @@
-import React from 'react'
-import {states} from "../../data/states"
+import React from "react";
+import { states } from "../../data/states";
 
-function TrafficConvictionsForm({formData, handleChange, setFormSection}) {
+function TrafficConvictionsForm({ formData, handleChange, setFormSection }) {
   return (
     <>
-    <fieldset className="border p-4 rounded">
+      <fieldset className="border p-4 rounded">
         <legend className="font-semibold text-lg">
           Traffic Convictions (Past 3 Years)
         </legend>
@@ -179,14 +179,22 @@ function TrafficConvictionsForm({formData, handleChange, setFormSection}) {
           </div>
         </div>
       </fieldset>
-      <button
-      className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-      onClick={(e) => setFormSection((prevValue) => prevValue + 1)}
-    >
-      Next
-    </button>
-      </>
-  )
+      <div className="grid grid-cols-2 gap-4">
+        <button
+          className="bg-gray-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          onClick={(e) => setFormSection((prevValue) => prevValue - 1)}
+        >
+          Previous
+        </button>
+        <button
+          className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          onClick={(e) => setFormSection((prevValue) => prevValue + 1)}
+        >
+          Next
+        </button>
+      </div>
+    </>
+  );
 }
 
-export default TrafficConvictionsForm
+export default TrafficConvictionsForm;
