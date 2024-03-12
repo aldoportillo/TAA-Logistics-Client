@@ -1,8 +1,9 @@
 import React from 'react'
 import {states} from "../../data/states"
 
-function LicenseInformationForm({handleChange, formData}) {
+function LicenseInformationForm({handleChange, formData, setFormSection}) {
   return (
+    <>
     <fieldset className="border p-4 rounded">
             <legend className="font-semibold text-lg">License Information</legend>
             <p className="text-sm mb-4">
@@ -68,6 +69,13 @@ function LicenseInformationForm({handleChange, formData}) {
               </div>
             </div>
           </fieldset>
+          <button
+        className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        onClick={(e) => setFormSection((prevValue) => prevValue + 1)}
+      >
+        Next
+      </button>
+      </>
   )
 }
 

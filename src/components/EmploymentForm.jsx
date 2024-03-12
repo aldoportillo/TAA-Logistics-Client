@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, {useState} from "react";
 import PersonalInformationForm from "./EmploymentFormComponents/PersonalInformationForm";
 import ResidencyHistoryForm from "./EmploymentFormComponents/ResidencyHistoryForm";
 import LicenseInformationForm from "./EmploymentFormComponents/LicenseInformationForm"
@@ -99,20 +99,34 @@ function EmploymentForm() {
       });
   };
 
+  const paginate = {
+    0: PersonalInformationForm,
+    1: ResidencyHistoryForm,
+    2: LicenseInformationForm,
+    3: TrafficConvictionsForm,
+    4: AccidentRecordForm
+  }
+
+  const [ formSection, setFormSection ] = useState(0)
+
+
+  console.log(formSection)
+  
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
 
-      <PersonalInformationForm formData={formData} handleChange={handleChange} />
-
-      <ResidencyHistoryForm formData={formData} handleChange={handleChange} />
-
-      <LicenseInformationForm formData={formData} handleChange={handleChange} />
+      { formSection == 0 && <PersonalInformationForm formData={formData} setFormSection={setFormSection} handleChange={handleChange} />}
       
-      <TrafficConvictionsForm formData={formData} handleChange={handleChange}/>
+      { formSection == 1 && <ResidencyHistoryForm formData={formData} setFormSection={setFormSection} handleChange={handleChange} /> }
 
-      <AccidentRecordForm formData={formData} handleChange={handleChange}/>
+      { formSection == 2 && <LicenseInformationForm formData={formData} setFormSection={setFormSection} handleChange={handleChange} /> }
+ 
+      { formSection == 3 && <TrafficConvictionsForm formData={formData} setFormSection={setFormSection} handleChange={handleChange}/> }
 
+      { formSection == 4 && <AccidentRecordForm formData={formData} handleChange={handleChange}/> } 
       
+
+
     </form>
   );
 }
