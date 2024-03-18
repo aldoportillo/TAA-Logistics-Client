@@ -78,7 +78,7 @@ Appreciate All Of The Help, Thank You."
               </p>
               <div className="mt-4">
                 <h4 className="text-lg font-semibold">Brian Haggerty</h4>
-                <p className="text-sm text-gray-500">CEO, Acme Inc.</p>
+                {/* <p className="text-sm text-gray-500">CEO, Acme Inc.</p> */}
               </div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -87,9 +87,9 @@ Appreciate All Of The Help, Thank You."
               </p>
               <div className="mt-4">
                 <h4 className="text-lg font-semibold">Cynthia Rosado</h4>
-                <p className="text-sm text-gray-500">
+                {/* <p className="text-sm text-gray-500">
                   Logistics Manager, XYZ Corp.
-                </p>
+                </p> */}
               </div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -98,9 +98,9 @@ Appreciate All Of The Help, Thank You."
               </p>
               <div className="mt-4">
                 <h4 className="text-lg font-semibold">Cynthia Alderson</h4>
-                <p className="text-sm text-gray-500">
+                {/* <p className="text-sm text-gray-500">
                   Operations Director, Global Solutions
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
