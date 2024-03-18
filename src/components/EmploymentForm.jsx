@@ -103,47 +103,42 @@ function EmploymentForm() {
       });
   };
 
+  const formComponents = [
+    <PersonalInformationForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={0}
+    />,
+    <ResidencyHistoryForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={1}
+    />,
+    <LicenseInformationForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={2}
+    />,
+    <TrafficConvictionsForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={3}
+    />,
+    <AccidentRecordForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={4}
+    />
+  ];
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {formSection == 0 && (
-        <PersonalInformationForm
-          formData={formData}
-          setFormSection={setFormSection}
-          handleChange={handleChange}
-        />
-      )}
-
-      {formSection == 1 && (
-        <ResidencyHistoryForm
-          formData={formData}
-          setFormSection={setFormSection}
-          handleChange={handleChange}
-        />
-      )}
-
-      {formSection == 2 && (
-        <LicenseInformationForm
-          formData={formData}
-          setFormSection={setFormSection}
-          handleChange={handleChange}
-        />
-      )}
-
-      {formSection == 3 && (
-        <TrafficConvictionsForm
-          formData={formData}
-          setFormSection={setFormSection}
-          handleChange={handleChange}
-        />
-      )}
-
-      {formSection == 4 && (
-        <AccidentRecordForm
-          formData={formData}
-          setFormSection={setFormSection}
-          handleChange={handleChange}
-        />
-      )}
+      {formComponents[formSection]}
     </form>
   );
 }
