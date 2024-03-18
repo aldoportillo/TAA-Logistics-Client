@@ -1,15 +1,14 @@
 import axios from "axios";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import PersonalInformationForm from "./EmploymentFormComponents/PersonalInformationForm";
 import ResidencyHistoryForm from "./EmploymentFormComponents/ResidencyHistoryForm";
-import LicenseInformationForm from "./EmploymentFormComponents/LicenseInformationForm"
-import TrafficConvictionsForm from "./EmploymentFormComponents/TrafficConvictionsForm"
+import LicenseInformationForm from "./EmploymentFormComponents/LicenseInformationForm";
+import TrafficConvictionsForm from "./EmploymentFormComponents/TrafficConvictionsForm";
 import AccidentRecordForm from "./EmploymentFormComponents/AccidentRecordForm";
-
+import { useNavigate } from "react-router-dom";
 
 function EmploymentForm() {
-
-  const [ formSection, setFormSection ] = useState(0)
+  const [formSection, setFormSection] = useState(0);
   const [formData, setFormData] = React.useState({
     first_name: "",
     middle_initial: "",
@@ -86,34 +85,60 @@ function EmploymentForm() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    //Add logic for sending email
 
     axios
       .post("http://127.0.0.1:3000/applications.json", formData)
       .then((response) => {
+        
         console.log(response);
+        // Add logic for sending email  
+        navigate("/application-submitted", {state: { first_name: formData.first_name, last_name: formData.last_name}}); 
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
+  const formComponents = [
+    <PersonalInformationForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={0}
+    />,
+    <ResidencyHistoryForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={1}
+    />,
+    <LicenseInformationForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={2}
+    />,
+    <TrafficConvictionsForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={3}
+    />,
+    <AccidentRecordForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={4}
+    />
+  ];
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-
-      { formSection == 0 && <PersonalInformationForm formData={formData} setFormSection={setFormSection} handleChange={handleChange} />}
-      
-      { formSection == 1 && <ResidencyHistoryForm formData={formData} setFormSection={setFormSection} handleChange={handleChange} /> }
-
-      { formSection == 2 && <LicenseInformationForm formData={formData} setFormSection={setFormSection} handleChange={handleChange} /> }
- 
-      { formSection == 3 && <TrafficConvictionsForm formData={formData} setFormSection={setFormSection} handleChange={handleChange}/> }
-
-      { formSection == 4 && <AccidentRecordForm formData={formData} setFormSection={setFormSection} handleChange={handleChange}/> } 
-      
+      {formComponents[formSection]}
     </form>
   );
 }

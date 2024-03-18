@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const RatesForm = () => {
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     company_name: '',
     contact_name: '',
@@ -27,13 +30,14 @@ const RatesForm = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
     axios.post('http://127.0.0.1:3000/quotes.json', formData)
       .then((response) => {
         console.log(response);
+        navigate("/quote-submitted", {state: { company_name: formData.company_name, contact_name: formData.contact_name, email: formData.email}}); 
       })
       .catch((error) => {
         console.log(error);

@@ -72,35 +72,35 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <p className="text-gray-600">
-                "Refreshing To See Outstanding Professionalism From This Team Here.
+                &quot;Refreshing To See Outstanding Professionalism From This Team Here.
 Above & Beyond Expectations.
-Appreciate All Of The Help, Thank You."
+Appreciate All Of The Help, Thank You.&quot;
               </p>
               <div className="mt-4">
                 <h4 className="text-lg font-semibold">Brian Haggerty</h4>
-                <p className="text-sm text-gray-500">CEO, Acme Inc.</p>
+                {/* <p className="text-sm text-gray-500">CEO, Acme Inc.</p> */}
               </div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <p className="text-gray-600">
-                "Always a pleasure doing business with Ed. He goes above and beyond to provide exceptional service and is very responsive to emails. Thank you Ed!"
+              &quot;Always a pleasure doing business with Ed. He goes above and beyond to provide exceptional service and is very responsive to emails. Thank you Ed! &quot;
               </p>
               <div className="mt-4">
                 <h4 className="text-lg font-semibold">Cynthia Rosado</h4>
-                <p className="text-sm text-gray-500">
+                {/* <p className="text-sm text-gray-500">
                   Logistics Manager, XYZ Corp.
-                </p>
+                </p> */}
               </div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <p className="text-gray-600">
-                "The level of service TAA provides is unparalleled in the logistics industry! Definitely top notch!"
+              &quot;The level of service TAA provides is unparalleled in the logistics industry! Definitely top notch! &quot;
               </p>
               <div className="mt-4">
                 <h4 className="text-lg font-semibold">Cynthia Alderson</h4>
-                <p className="text-sm text-gray-500">
+                {/* <p className="text-sm text-gray-500">
                   Operations Director, Global Solutions
-                </p>
+                </p> */}
               </div>
             </div>
           </div>

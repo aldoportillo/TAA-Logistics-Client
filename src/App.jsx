@@ -8,6 +8,9 @@ import Rates from './pages/Rates'
 import Employment from './pages/Employment'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import ApplicationSubmitted from './pages/ApplicationSubmitted'
+import QuoteSubmitted from './pages/QuoteSubmitted'
+
 function App() {
 
   return (
@@ -17,7 +20,9 @@ function App() {
         <Route path="/services" element={<PageContainer><Services /></PageContainer>} />
         <Route path="/about" element={<PageContainer><About /></PageContainer>} />
         <Route path="/rates" element={<PageContainer><Rates /></PageContainer>} />
+        <Route path="/quote-submitted" element={<PageContainer><QuoteSubmitted /></PageContainer>} />
         <Route path="/employment" element={<PageContainer><Employment /></PageContainer>} />
+        <Route path="/application-submitted" element={<PageContainer><ApplicationSubmitted /></PageContainer>} />
         <Route path="/contact" element={<PageContainer><Contact /></PageContainer>} />
         <Route path="*" element={<PageContainer><NotFound /></PageContainer>} />
       </Routes>
