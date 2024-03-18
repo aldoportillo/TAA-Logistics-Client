@@ -4,16 +4,16 @@ import ContactForm from '../components/ContactForm'
 
 function Contact() {
   return (
-    <Wrapper>
+    <Wrapper >
       <img src="https://taalogistics.com/gallery/17037850493.jpg" alt="contact banner" />
-      <h1>Contact Us</h1>
-      Address:
-      18949 Wolf Rd,
-      Mokena, IL 60448
-
-Phone: (708) 567-5424
-    
-    <ContactForm />
+      <ContactForm />
+      <div className="text-center">
+        Address:
+        18949 Wolf Rd,
+        Mokena, IL 60448
+        <br />
+        <a href="tel:7085675424">(708) 567-5424</a>
+      </div>
     </Wrapper>
   )
 }
