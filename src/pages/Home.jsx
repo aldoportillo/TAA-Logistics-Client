@@ -56,12 +56,53 @@ const Home = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white w-3/4">
             <h2 className="text-3xl font-bold">About Us</h2>
             <p className="mt-4">
-              As a family-owned transportation company, we&apos;re committed to our
-              industry&apos;s future. Since 1995, we&apos;ve operated in two countries and
-              amassed over 5 million miles of experience, making us leaders in
-              the transport sector. Our founders, who are also our original
-              drivers, own TAA Logistics.
+              As a family-owned transportation company, we&apos;re committed to
+              our industry&apos;s future. Since 1995, we&apos;ve operated in two
+              countries and amassed over 5 million miles of experience, making
+              us leaders in the transport sector. Our founders, who are also our
+              original drivers, own TAA Logistics.
             </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gray-100 py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-gray-800 text-3xl font-bold text-center mb-8">Testimonials</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-gray-600">
+                "Refreshing To See Outstanding Professionalism From This Team Here.
+Above & Beyond Expectations.
+Appreciate All Of The Help, Thank You."
+              </p>
+              <div className="mt-4">
+                <h4 className="text-lg font-semibold">Brian Haggerty</h4>
+                <p className="text-sm text-gray-500">CEO, Acme Inc.</p>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-gray-600">
+                "Always a pleasure doing business with Ed. He goes above and beyond to provide exceptional service and is very responsive to emails. Thank you Ed!"
+              </p>
+              <div className="mt-4">
+                <h4 className="text-lg font-semibold">Cynthia Rosado</h4>
+                <p className="text-sm text-gray-500">
+                  Logistics Manager, XYZ Corp.
+                </p>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-gray-600">
+                "The level of service TAA provides is unparalleled in the logistics industry! Definitely top notch!"
+              </p>
+              <div className="mt-4">
+                <h4 className="text-lg font-semibold">Cynthia Alderson</h4>
+                <p className="text-sm text-gray-500">
+                  Operations Director, Global Solutions
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
