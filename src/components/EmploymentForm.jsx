@@ -6,6 +6,7 @@ import LicenseInformationForm from "./EmploymentFormComponents/LicenseInformatio
 import TrafficConvictionsForm from "./EmploymentFormComponents/TrafficConvictionsForm";
 import AccidentRecordForm from "./EmploymentFormComponents/AccidentRecordForm";
 import { useNavigate } from "react-router-dom";
+import DrivingExperienceForm from "./EmploymentFormComponents/DrivingExperienceForm";
 
 function EmploymentForm() {
   const [formSection, setFormSection] = useState(0);
@@ -128,11 +129,17 @@ function EmploymentForm() {
       handleChange={handleChange}
       key={3}
     />,
-    <AccidentRecordForm
+    <DrivingExperienceForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={4}
+    />,
+    <AccidentRecordForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={5}
     />
   ];
 
