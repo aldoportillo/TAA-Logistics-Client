@@ -77,6 +77,7 @@ function Services() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {service_data.services.map((service) => (
           <Card key={service.id} title={service.title} description={service.description} image={service.image} />
+
         ))}
       </div>
     </div>
@@ -84,3 +85,15 @@ function Services() {
 }
 
 export default Services;
+
+
+/*
+Maybe this code for card:
+
+<div key={service.id} className="flex flex-col items-center text-center bg-white shadow-md rounded-lg p-6">
+            <img src={service.image} alt={service.title} className="w-full h-40 object-cover rounded-t-lg mb-4" />
+            <h2 className="text-2xl font-semibold mb-2 text-black">{service.title}</h2>
+            <p className="text-lg">{service.description}</p>
+          </div>
+
+          */
