@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 /*#bf2121*/
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
-    number: '',
-    email: '',
+    phone_number: '',
+    email_address: '',
     message: '',
   });
 
@@ -14,7 +16,18 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    axios
+      .post("http://127.0.0.1:3000/inquiries.json", formData)
+      .then((response) => {
+        
+        console.log(response);
+        // Add logic for sending email_address  
+        Navigate("/contact-submitted", {state: { name: formData.name, email_address: formData.email_address}}); 
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -33,23 +46,23 @@ function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="number" className="block text-sm font-medium text-gray-700">Number</label>
+        <label htmlFor="phone_number" className="block text-sm font-medium text-gray-700">Phone Number</label>
         <input
           type="text"
-          name="number"
-          id="number"
-          value={formData.number}
+          name="phone_number"
+          id="phone_number"
+          value={formData.phone_number}
           onChange={handleChange}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+        <label htmlFor="email_address" className="block text-sm font-medium text-gray-700">Email Address</label>
         <input
-          type="email"
-          name="email"
-          id="email"
-          value={formData.email}
+          type="email_address"
+          name="email_address"
+          id="email_address"
+          value={formData.email_address}
           onChange={handleChange}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
         />
