@@ -7,20 +7,7 @@ ExperienceForm.propTypes = {
 };
 
 function ExperienceForm({ formData, handleChange, setFormSection }) {
-  const experiences = [1, 2, 3];
-
-  const isFormValid = () => {
-    return experiences.every((num) => {
-      return (
-        formData[`experience_class_${num}`].length > 0 &&
-        formData[`experience_type_${num}`].length > 0 &&
-        formData[`experience_start_date_${num}`].length > 0 &&
-        formData[`experience_end_date_${num}`].length > 0 &&
-        formData[`experience_miles_${num}`].length > 0
-      );
-    });
-  };
-
+  const experiences = [1, 2, 3]
 
   return (
     <>
@@ -102,7 +89,6 @@ function ExperienceForm({ formData, handleChange, setFormSection }) {
         <button
           className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           onClick={() => setFormSection((prevValue) => prevValue + 1)}
-          disabled={!isFormValid()}
         >
           Next
         </button>
