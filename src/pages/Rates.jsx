@@ -1,22 +1,13 @@
-import styled from 'styled-components'
-import RatesForm from '../components/RatesForm'
+import ratesHeader from '../assets/rate_header.jpg';
+import RatesForm from '../components/RatesForm';
 
 function Rates() {
   return (
-    <Wrapper>
-      <img src="https://taalogistics.com/images/rate_header.jpg" alt="rates banner" />
+    <div className="flex flex-col max-w-4xl mx-auto my-10 px-4 sm:px-6 lg:px-8">
+      <img src={ratesHeader} alt="rates banner" className="mb-8 rounded-lg shadow-lg" />
       <RatesForm />
-    </Wrapper>
-  )
+    </div>
+  );
 }
 
-const Wrapper = styled.main`
-
-  flex: 1;
-  margin: 0 10vw;
-  display: flex;
-  flex-direction: column;
-  width: auto;
-`
-
-export default Rates
+export default Rates;
