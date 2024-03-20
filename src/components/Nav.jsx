@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -7,11 +7,47 @@ import PropTypes from 'prop-types';
 function Nav({ isMenuOpen }) {
     return (
         <Wrapper isMenuOpen={isMenuOpen}>
-            <Link to="/services">SERVICES</Link>
-            <Link to="/about">ABOUT</Link>
-            <Link to="/rates">RATES</Link>
-            <Link to="/employment">EMPLOYMENT</Link>
-            <Link to="/contact">CONTACT</Link>
+            <NavLink
+        to="/services"
+        className={({ isActive }) =>
+          isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
+        }
+      >
+        SERVICES
+      </NavLink>
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
+        }
+      >
+        ABOUT
+      </NavLink>
+      <NavLink
+        to="/rates"
+        className={({ isActive }) =>
+          isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
+        }
+      >
+        RATES
+      </NavLink>
+      <NavLink
+        to="/employment"
+        className={({ isActive }) =>
+          isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
+        }
+      >
+        EMPLOYMENT
+      </NavLink>
+      <NavLink
+        to="/contact"
+        className={({ isActive }) =>
+          isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
+        }
+      >
+        CONTACT
+      </NavLink>
+
         </Wrapper>
     )
 }
@@ -22,20 +58,7 @@ const Wrapper = styled.nav`
   gap: 20px;
   justify-content: space-around;
 
-  a {
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: black;
-  }
-
-  a:hover {
-    color: var(--hover-blue);
-  }
-
-  a:active {
-    color: var(--active-blue);
-  }
+ 
 
   @media (max-width: 768px) {
     flex-direction: column;
