@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import employmentHeader from '../assets/employment_header.png';
 
 const ApplicationSubmitted = () => {
   const location = useLocation();
@@ -8,7 +9,7 @@ const ApplicationSubmitted = () => {
     return (
 <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
     <div className="max-w-4xl w-full">
-        <img src="https://taalogistics.com/images/employment_header.png" alt="employment banner" className="w-full" />
+        <img src={employmentHeader} alt="employment banner" className="w-full" />
         <div className="px-4 py-8">
             <h1 className="text-4xl font-bold mb-4">Thank You!</h1>
             <p className="text-lg mb-4">

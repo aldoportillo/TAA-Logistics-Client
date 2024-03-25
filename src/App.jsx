@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import ApplicationSubmitted from './pages/ApplicationSubmitted'
 import QuoteSubmitted from './pages/QuoteSubmitted'
+import ContactSubmitted from './pages/ContactSubmitted'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/employment" element={<PageContainer><Employment /></PageContainer>} />
         <Route path="/application-submitted" element={<PageContainer><ApplicationSubmitted /></PageContainer>} />
         <Route path="/contact" element={<PageContainer><Contact /></PageContainer>} />
+        <Route path="/contact-submitted" element={<PageContainer><ContactSubmitted /></PageContainer>} />
         <Route path="*" element={<PageContainer><NotFound /></PageContainer>} />
       </Routes>
     </>

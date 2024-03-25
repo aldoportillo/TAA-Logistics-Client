@@ -1,8 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 /*#bf2121*/
 function ContactForm() {
+
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     name: '',
     phone_number: '',
@@ -23,7 +26,7 @@ function ContactForm() {
         
         console.log(response);
         // Add logic for sending email_address  
-        Navigate("/contact-submitted", {state: { name: formData.name, email_address: formData.email_address}}); 
+        navigate("/contact-submitted", {state: { name: formData.name, email_address: formData.email_address}}); 
       })
       .catch((error) => {
         console.error(error);
