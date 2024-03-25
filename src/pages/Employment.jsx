@@ -1,26 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import EmploymentForm from '../components/EmploymentForm'
+import employmentHeader from '../assets/employment_header.png'
+import EmploymentForm from '../components/EmploymentForm';
 
 function Employment() {
   return (
-    <Wrapper>
-      <img src="https://taalogistics.com/images/employment_header.png" alt="employment banner" />
+    <div className="flex flex-col max-w-4xl mx-auto my-10 px-4 sm:px-6 lg:px-8">
+      <img src={employmentHeader} alt="employment banner" className="mb-8 rounded-lg shadow-lg" />
       <EmploymentForm />
-    </Wrapper>
-  )
+    </div>
+  );
 }
 
-const Wrapper = styled.main`
-
-  flex: 1;
-  margin: 0 10vw;
-  display: flex;
-  flex-direction: column;
-  width: auto;
-`
-export default Employment
-
-
-
-
+export default Employment;

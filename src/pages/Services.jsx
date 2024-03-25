@@ -1,103 +1,99 @@
-import React from 'react'
-import Card from '../components/Card'
-import styled from 'styled-components'
+import Card from '../components/Card';
+import clmt from '../assets/clmt.jpg';
+import poweronlydivision from '../assets/poweronlydivision.jpeg';
+import maintence from '../assets/maint_gold.jpg';
+import intermodal from '../assets/intermodal.jpeg';
+import dryvan from '../assets/dryvan.jpeg';
+import isotank from '../assets/isotank.jpeg';
+import secureyard from '../assets/secure_yard.jpg';
+import transloading from '../assets/transloading.jpg';
+import hazmat from '../assets/hazmat.jpeg';
 
-//Will get this fetched from the backend and map over it. Customer can adjust their services :) Dont forget to also store images in blob store and get the url from the backend
 const service_data = {
   services: [
     {
       id: 1,
       title: "Clean, Late Model Tractors",
       description: "Our drivers are equipped with late model equipment to meet FMCSA and DOT requirements and eliminate delivery delays due to breakdowns and \"Out Of Service\" issues.",
-      image: "https://taalogistics.com/images/clmt.jpg"
+      image: clmt
     },
     {
       id: 2,
       title: "Power Only Division",
       description: "We will haul your trailers to their final destinations, safely!",
-      image: "https://taalogistics.com/images/dryvan.jpg"
+      image: poweronlydivision
     },
     {
       id: 3,
       title: "Maintenance & Repair",
       description: "Full time mechanics trained to keep our fleet of trucks and chassis DOT compliant and on the road delivering your products on time.",
-      image: "https://taalogistics.com/images/maint_gold.jpg"
+      image: maintence,
     },
     {
       id: 4,
       title: "Intermodal",
       description: "Our drivers are trained and cleared to pull from and deliver to 90% of the Chicagoland ramps!",
-      image: "https://taalogistics.com/images/truck719.jpg",
-
+      image: intermodal,
     },
     {
       id: 5,
       title: "Dry Van",
       description: "Our late model Great Dane and Wabash 53' dry vans are food grade ready with large carbon composite plates for reinforced decks.",
-      image: "https://taalogistics.com/images/intermodal.jpg",
-
+      image: dryvan,
     },
     {
       id: 6,
       title: "ISO Tank",
       description: "We have dedicated CDL Tanker endorsed drivers at the ready to transport your bulk products to market.",
-      image: "https://taalogistics.com/images/tamker.jpg",
-
+      image: isotank,
     },
     {
       id: 7,
       title: "Secure Yard",
       description: "Our gated yard has over 100 secure parking spaces for storage of your goods until it is ready for delivery.",
-      image: "https://taalogistics.com/images/secure_yard.jpg",
-
+      image: secureyard,
     },
     {
       id: 8,
       title: "Transloading",
       description: "Our access to containers, dry van trailers, and a trans-dock allows us to assist in getting your specific product needs to and from multiple locations.",
-      image: "https://taalogistics.com/images/transloading.jpg",
-
+      image: transloading,
     },
     {
       id: 9,
       title: "HazMat",
       description: "Our CDL DOT HazMat certified and endorsed drivers are here ready to pull your placarded frac and ISO tanks to their final destinations.",
-      image: "https://taalogistics.com/images/poweronly.jpg",
-
+      image: hazmat,
     },
   ]
-}
+};
 
 function Services() {
   return (
-    <Wrapper>
-      <h1>Services</h1>
-      <p>TAA Logistics Currently Offers:</p>
+    <div className="flex flex-col items-center my-10 mx-auto w-auto">
+      <h1 className="text-4xl font-bold mb-4">Services</h1>
+      <p className="text-xl mb-8">TAA Logistics Currently Offers:</p>
 
-      <div className="cards-container">
-        {service_data.services.map((service) => {
-          return <Card key={service.id} title={service.title} description={service.description} image={service.image} />
-        })}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {service_data.services.map((service) => (
+          <Card key={service.id} title={service.title} description={service.description} image={service.image} />
+
+        ))}
       </div>
-    </Wrapper>
-  )
+    </div>
+  );
 }
 
-const Wrapper = styled.main`
+export default Services;
 
-flex: 1;
-margin: 0 10vw;
-display: flex;
-flex-direction: column;
-align-items: center;
-width: auto;
 
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 50px;
-  }
-`
+/*
+Maybe this code for card:
 
-export default Services
+<div key={service.id} className="flex flex-col items-center text-center bg-white shadow-md rounded-lg p-6">
+            <img src={service.image} alt={service.title} className="w-full h-40 object-cover rounded-t-lg mb-4" />
+            <h2 className="text-2xl font-semibold mb-2 text-black">{service.title}</h2>
+            <p className="text-lg">{service.description}</p>
+          </div>
+
+          */
