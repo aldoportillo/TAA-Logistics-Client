@@ -92,7 +92,7 @@ function EmploymentForm() {
     e.preventDefault();
 
     axios
-      .post("http://127.0.0.1:3000/applications.json", formData)
+      .post("https://taa-logistics-server.onrender.com/applications.json", formData)
       .then((response) => {
         
         console.log(response);

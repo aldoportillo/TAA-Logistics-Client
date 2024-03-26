@@ -34,7 +34,7 @@ const RatesForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    axios.post('http://127.0.0.1:3000/quotes.json', formData)
+    axios.post('https://taa-logistics-server.onrender.com/quotes.json', formData)
       .then((response) => {
         console.log(response);
         navigate("/quote-submitted", {state: { company_name: formData.company_name, contact_name: formData.contact_name, email: formData.email}}); 
