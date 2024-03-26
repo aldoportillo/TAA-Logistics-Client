@@ -21,7 +21,7 @@ function ContactForm() {
     e.preventDefault();
 
     axios
-      .post("http://127.0.0.1:3000/inquiries.json", formData)
+      .post("https://taa-logistics-server.onrender.com/inquiries.json", formData)
       .then((response) => {
         
         console.log(response);
