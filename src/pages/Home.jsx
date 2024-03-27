@@ -10,6 +10,7 @@ import isotank from '../assets/isotank.jpeg';
 import secureyard from '../assets/secure_yard.jpg';
 import transloading from '../assets/transloading.jpg';
 import hazmat from '../assets/hazmat.jpeg';
+import lovesGas from '../assets/lovesGas.jpeg';
 
 const service_data = {
   services: [
@@ -188,12 +189,23 @@ Appreciate All Of The Help, Thank You.&quot;
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Additional Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">Routing Efficiency</h3>
+            <img
+            src={lovesGas}
+            className="w-full h-60 object-cover rounded-t-lg mb-4"
+          />
+            <h3 className="text-2xl font-semibold mb-2 text-black">Routing Efficiency</h3>
             <p className="text-lg text-gray-600">
               Our routing efficiency plan includes pre-fueling in our primary yard and our drivers are equipped with fuel cards for over-the-road refueling if needed. We are proud of our 10-year 96% on-time delivery record. It is supported by a 24-hour logistical staff to provide the best communication to our shippers and customers.
-            </p>
+            </p>          
           </div>
           <div className="bg-white p-6 rounded-lg shadow-lg">
+          <video
+            src={samsara}
+            className="w-full h-60 object-cover rounded-t-lg mb-4"
+            autoPlay
+            loop
+            muted
+          />
             <h3 className="text-2xl font-semibold text-gray-800 mb-2">Track Your Shipment</h3>
             <p className="text-lg text-gray-600">
               With the use of SAMSARA, you can track your shipments on our trucks in real-time. This allows you to track your shipment and know when they will arrive.
