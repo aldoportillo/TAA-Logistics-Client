@@ -7,14 +7,14 @@ import PropTypes from 'prop-types';
 function Nav({ isMenuOpen }) {
     return (
         <Wrapper isMenuOpen={isMenuOpen}>
-            <NavLink
+            {/* <NavLink
         to="/services"
         className={({ isActive }) =>
           isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
         }
       >
-        SERVICES
-      </NavLink>
+        SERVICES 
+      </NavLink> */} {/* Consider Reimplementing */}
       <NavLink
         to="/about"
         className={({ isActive }) =>
