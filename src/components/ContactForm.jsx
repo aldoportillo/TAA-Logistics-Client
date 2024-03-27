@@ -1,11 +1,15 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CsrfTokenContext } from '../context/CsrfTokenContext.jsx';
+
 /*#bf2121*/
 function ContactForm() {
 
   const navigate = useNavigate();
-  
+  const url = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/inquiries.json' : 'https://taa-logistics-server.onrender.com/inquiries.json';
+  const csrfToken = useContext(CsrfTokenContext);
+
   const [formData, setFormData] = useState({
     name: '',
     phone_number: '',
@@ -13,25 +17,42 @@ function ContactForm() {
     message: '',
   });
 
+  console.log(csrfToken);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(formData);
+    console.log(url);
+    console.log(csrfToken);
+  
     axios
-      .post("https://taa-logistics-server.onrender.com/inquiries.json", formData)
+      .post(url, formData, {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': csrfToken
+        },
+        withCredentials: true
+      })
       .then((response) => {
-        
         console.log(response);
-        // Add logic for sending email_address  
-        navigate("/contact-submitted", {state: { name: formData.name, email_address: formData.email_address}}); 
+        navigate("/contact-submitted", { state: { name: formData.name, email_address: formData.email_address } });
       })
       .catch((error) => {
         console.error(error);
+        if (error.response && error.response.status === 422) {
+          const errors = error.response.data.errors || ["Please check your input."];
+          alert(errors.join("\n"));
+        } else {
+          alert("An error occurred. Please try again.");
+        }
       });
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
