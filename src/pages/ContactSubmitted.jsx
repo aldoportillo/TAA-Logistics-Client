@@ -16,14 +16,14 @@ return (
             <div className="px-4 py-8">
                 <h1 className="text-4xl font-bold mb-4">Thank You!</h1>
                 <p className="text-lg mb-4">
-                    Dear {name},
+                    Dear {name || "Customer"},
                 </p>
                 <p className="text-lg mb-4">
                     We are thrilled to receive your message through our contact form.
                 </p>
                 <p className="text-lg mb-4">
                     Our team will carefully review your message and get back to you
-                    shortly at {email_address}.
+                    shortly at {email_address || "blank@email.com"}.
                 </p>
                 <p className="text-lg mt-4">
                     Best regards,

@@ -13,7 +13,7 @@ const ApplicationSubmitted = () => {
         <div className="px-4 py-8">
             <h1 className="text-4xl font-bold mb-4">Thank You!</h1>
             <p className="text-lg mb-4">
-                Dear {first_name} {last_name},
+                Dear {first_name || "blank"} {last_name || "name"},
             </p>
             <p className="text-lg mb-4">
                 We are thrilled to receive your application for TAA Logistics.
