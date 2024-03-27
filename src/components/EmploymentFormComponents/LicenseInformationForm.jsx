@@ -36,7 +36,7 @@ function LicenseInformationForm({ handleChange, formData, setFormSection }) {
         <div className="grid grid-cols-4 gap-4">
           <div>
             <label htmlFor="license_state" className="block">
-              State
+              State *
             </label>
             <select
               id="license_state"
@@ -54,7 +54,7 @@ function LicenseInformationForm({ handleChange, formData, setFormSection }) {
           </div>
           <div>
             <label htmlFor="license_number" className="block">
-              License Number
+              License Number *
             </label>
             <input
               type="text"
@@ -66,7 +66,7 @@ function LicenseInformationForm({ handleChange, formData, setFormSection }) {
           </div>
           <div>
             <label htmlFor="license_type" className="block">
-              Type
+              Type *
             </label>
             <input
               type="text"
@@ -78,7 +78,7 @@ function LicenseInformationForm({ handleChange, formData, setFormSection }) {
           </div>
           <div>
             <label htmlFor="license_expiration_date" className="block">
-              Expiration Date
+              Expiration Date *
             </label>
             <input
               type="date"
@@ -98,7 +98,9 @@ function LicenseInformationForm({ handleChange, formData, setFormSection }) {
           Previous
         </button>
         <button
-          className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className={`bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+            isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 hover:bg-gray-500 cursor-not-allowed'
+          } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
           onClick={() => setFormSection((prevValue) => prevValue + 1)}
           disabled={!isFormValid()}
         >

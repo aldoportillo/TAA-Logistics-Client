@@ -31,6 +31,17 @@ const RatesForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const isFormValid = () => {
+    formData.company_name.length > 0 &&
+    formData.contact_name.length > 0 &&
+    formData.email.length > 0 &&
+    formData.phone.length > 0 &&
+    formData.from.length > 0 &&
+    formData.delivery_zip_code.length > 0 &&
+    formData.shipping_zip_code.length > 0;
+    
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -158,7 +169,12 @@ const RatesForm = () => {
         <textarea id="questions_or_notes" name="questions_or_notes" value={formData.questions_or_notes} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" rows="3"></textarea>
       </div>
     </fieldset>
-      <button type="submit" className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Submit</button>
+      <button type="submit" 
+      className={`bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+        isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 hover:bg-gray-500 cursor-not-allowed'
+      } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
+      disabled={!isFormValid()}
+      >Submit</button>
     </form>
   );
 };

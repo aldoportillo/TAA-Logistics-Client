@@ -28,7 +28,7 @@ function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
           <div className="grid grid-cols-4 gap-4">
             <div>
               <label htmlFor="residency_address_1" className="block">
-                Address
+                Address *
               </label>
               <input
                 type="text"
@@ -40,7 +40,7 @@ function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
             </div>
             <div>
               <label htmlFor="residency_city_1" className="block">
-                City
+                City *
               </label>
               <input
                 type="text"
@@ -52,7 +52,7 @@ function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
             </div>
             <div>
               <label htmlFor="residency_state_1" className="block">
-                State
+                State *
               </label>
               <select
                 id="residency_state_1"
@@ -70,7 +70,7 @@ function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
             </div>
             <div>
               <label htmlFor="residency_zip_1" className="block">
-                Zip
+                Zip *
               </label>
               <input
                 type="text"
@@ -203,10 +203,12 @@ function ResidencyHistoryForm({ formData, handleChange, setFormSection }) {
           Previous
         </button>
         <button
-          className="bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          onClick={() => setFormSection((prevValue) => prevValue + 1)}
-          disabled={!isFormValid()}
-        >
+        className={`bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+          isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 hover:bg-gray-500 cursor-not-allowed'
+        } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
+        onClick={() => setFormSection((prevValue) => prevValue + 1)}
+        disabled={!isFormValid()}
+      >
           Next
         </button>
       </div>
