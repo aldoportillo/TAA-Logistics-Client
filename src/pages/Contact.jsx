@@ -8,7 +8,7 @@ function Contact() {
       <ContactForm />
       <div className="text-center mt-8">
         <h2 className="text-2xl font-semibold mb-4 text-gray-800">Contact Information</h2>
-        <div className="flex flex-col md:flex-row justify-center items-start gap-8">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8">
           <div>
             <a className="text-lg text-gray-700" href='https://maps.app.goo.gl/LhQe6UWda3zp2ZQ68' target="_blank" rel="noopener noreferrer">
               <span className="font-semibold">Address:</span><br />
@@ -22,6 +22,10 @@ function Contact() {
             <p className="text-lg mt-4 text-gray-700">
               <span className="font-semibold">Email:</span><br />
               <a href="mailto:ed@taalogistics.com" className="text-blue-500 hover:text-blue-600">ed@taalogistics.com</a>
+            </p>
+            <p className="text-lg mt-4 text-gray-700">
+              <span className="font-semibold">Hours:</span><br/>
+              M-F 8:00am - 5:00pm<br />
             </p>
           </div>
           <iframe
