@@ -23,8 +23,6 @@ function ContactForm() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData)
-    console.log(isFormValid())
   };
 
   const handleSubmit = (e) => {

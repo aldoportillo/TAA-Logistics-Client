@@ -7,9 +7,8 @@ const ApplicationSubmitted = () => {
 
 
     return (
-<div className="flex flex-col items-center justify-center h-screen bg-gray-50">
-    <div className="max-w-4xl w-full">
-        <img src={employmentHeader} alt="employment banner" className="w-full" />
+<div className="flex flex-col max-w-4xl mx-auto my-10 px-4 sm:px-6 lg:px-8">
+        <img src={employmentHeader} alt="employment banner" className="mb-8 rounded-lg shadow-lg" />
         <div className="px-4 py-8">
             <h1 className="text-4xl font-bold mb-4">Thank You!</h1>
             <p className="text-lg mb-4">
@@ -30,8 +29,9 @@ const ApplicationSubmitted = () => {
                 TAA Logistics
             </p>
         </div>
-    </div>
 </div>
+
+
 
     );
 };
