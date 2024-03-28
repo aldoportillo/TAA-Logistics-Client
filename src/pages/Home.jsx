@@ -11,6 +11,7 @@ import secureyard from '../assets/secure_yard.jpg';
 import transloading from '../assets/transloading.jpg';
 import hazmat from '../assets/hazmat.jpeg';
 import lovesGas from '../assets/lovesGas.jpeg';
+import interModalContainer from '../assets/intermodal-container.jpeg';
 
 const service_data = {
   services: [
@@ -106,13 +107,7 @@ function Home() {
           </div>
         </div>
         <div className="md:w-1/2 mt-8 md:mt-0">
-          <video
-            src={samsara}
-            className="rounded-lg shadow-lg"
-            autoPlay
-            loop
-            muted
-          />
+          <img src={interModalContainer} alt="intermodal-container" className="rounded-lg shadow-lg" />
         </div>
       </div>
       <div className="mt-12">
