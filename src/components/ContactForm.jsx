@@ -15,7 +15,7 @@ function ContactForm() {
   
 
   const isFormValid = () => {
-    formData.name.length > 0 &&
+    return formData.name.length > 0 &&
     formData.phone_number.length > 0 &&
     formData.email_address.length > 0 &&
     formData.message.length > 0;
@@ -23,6 +23,8 @@ function ContactForm() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(formData)
+    console.log(isFormValid())
   };
 
   const handleSubmit = (e) => {

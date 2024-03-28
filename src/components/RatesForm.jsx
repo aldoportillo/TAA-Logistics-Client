@@ -32,7 +32,7 @@ const RatesForm = () => {
   };
 
   const isFormValid = () => {
-    formData.company_name.length > 0 &&
+    return formData.company_name.length > 0 &&
     formData.contact_name.length > 0 &&
     formData.email.length > 0 &&
     formData.phone.length > 0 &&
