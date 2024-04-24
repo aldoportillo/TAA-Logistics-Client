@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import GoogleReviewsLogo from "../assets/googlereviews.png";
+import Review from '../assets/review.png';
 import {
   FaInstagram,
   FaFacebook,
@@ -60,7 +60,9 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={GoogleReviewsLogo} alt="Leave us a review on google" />
+          {/* <img src={GoogleReviewsLogo} alt="Leave us a review on google" /> */}
+          {/* <img src={Review} alt="Leave us a review on google"  /> */}
+          Leave us a Review
         </a>
       </div>
       <div className="row">
@@ -117,6 +119,7 @@ const Wrapper = styled.footer`
     height: 20px;
     width: 20px;
   }
+
 `;
 
 export default Footer;

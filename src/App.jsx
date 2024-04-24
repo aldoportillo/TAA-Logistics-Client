@@ -11,8 +11,19 @@ import NotFound from './pages/NotFound'
 import ApplicationSubmitted from './pages/ApplicationSubmitted'
 import QuoteSubmitted from './pages/QuoteSubmitted'
 import ContactSubmitted from './pages/ContactSubmitted'
+import Events from './pages/Events'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function App() {
+
+  const [events, setEvents] = useState([])
+
+  useEffect(() => {
+    axios.get('https://taa-logistics-server.onrender.com/events.json')
+      .then((response) => setEvents(response.data))
+      .catch((error) => console.log(error))
+  }, [])
 
   return (
     <>
@@ -26,6 +37,7 @@ function App() {
         <Route path="/application-submitted" element={<PageContainer><ApplicationSubmitted /></PageContainer>} />
         <Route path="/contact" element={<PageContainer><Contact /></PageContainer>} />
         <Route path="/contact-submitted" element={<PageContainer><ContactSubmitted /></PageContainer>} />
+        <Route path="/events" element={<PageContainer><Events events={events}/></PageContainer>} />
         <Route path="*" element={<PageContainer><NotFound /></PageContainer>} />
       </Routes>
     </>

@@ -40,6 +40,14 @@ function Nav({ isMenuOpen }) {
         EMPLOYMENT
       </NavLink>
       <NavLink
+        to="/events"
+        className={({ isActive }) =>
+          isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
+        }
+      >
+        EVENTS
+      </NavLink>
+      <NavLink
         to="/contact"
         className={({ isActive }) =>
           isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
