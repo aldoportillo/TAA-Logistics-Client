@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 
 
-function Nav({ isMenuOpen }) {
+function Nav({ isMenuOpen, handleLinkClick }) {
+  
     return (
         <Wrapper isMenuOpen={isMenuOpen}>
             {/* <NavLink
@@ -17,6 +18,7 @@ function Nav({ isMenuOpen }) {
       </NavLink> */} {/* Consider Reimplementing */}
       <NavLink
         to="/about"
+        onClick={handleLinkClick}
         className={({ isActive }) =>
           isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
         }
@@ -25,6 +27,7 @@ function Nav({ isMenuOpen }) {
       </NavLink>
       <NavLink
         to="/rates"
+        onClick={handleLinkClick}
         className={({ isActive }) =>
           isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
         }
@@ -33,6 +36,7 @@ function Nav({ isMenuOpen }) {
       </NavLink>
       <NavLink
         to="/employment"
+        onClick={handleLinkClick}
         className={({ isActive }) =>
           isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
         }
@@ -41,6 +45,7 @@ function Nav({ isMenuOpen }) {
       </NavLink>
       <NavLink
         to="/events"
+        onClick={handleLinkClick}
         className={({ isActive }) =>
           isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
         }
@@ -49,6 +54,7 @@ function Nav({ isMenuOpen }) {
       </NavLink>
       <NavLink
         to="/contact"
+        onClick={handleLinkClick}
         className={({ isActive }) =>
           isActive ? 'text-blue-600 font-extrabold px-3 py-2 rounded-md' : 'text-gray-600 hover:text-blue-500 font-bold px-3 py-2 rounded-md'
         }
@@ -93,6 +99,7 @@ const Wrapper = styled.nav`
 
 Nav.propTypes = {
     isMenuOpen: PropTypes.bool.isRequired,
+    handleLinkClick: PropTypes.func.isRequired,
 };
 
 Wrapper.propTypes = {

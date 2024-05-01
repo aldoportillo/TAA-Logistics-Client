@@ -28,16 +28,20 @@ function Header() {
       document.body.style.overflow = 'auto';
     }
   }, [isMenuOpen]);
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
   
   return (
     <Wrapper>
-      <Link to="/"><img src={Logo} alt="logo" /></Link>
+      <Link to="/" onClick={handleLinkClick}><img src={Logo} alt="logo" /></Link>
 
       {windowWidth <= 768 && (
         <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} />
       )}
 
-      <Nav isMenuOpen={isMenuOpen} />
+      <Nav isMenuOpen={isMenuOpen} handleLinkClick={handleLinkClick} />
     </Wrapper>
   )
 }
