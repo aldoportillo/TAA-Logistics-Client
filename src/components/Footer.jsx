@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Review from '../assets/review.png';
+
 import {
   FaInstagram,
   FaFacebook,
@@ -18,40 +18,52 @@ function Footer() {
     <Wrapper>
       <div className="row">
         <div className="social-medias">
-          <a className="icon-wrapper"
-          href="https://twitter.com/taalogistics"
-          target="_blank"
-          rel="noopener noreferrer">
+          <a
+            className="icon-wrapper"
+            href="https://twitter.com/taalogistics"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaXTwitter />
           </a>
-          <a className="icon-wrapper"
-          href="https://www.instagram.com/taalogisticsinc/"
-          target="_blank"
-          rel="noopener noreferrer">
+          <a
+            className="icon-wrapper"
+            href="https://www.instagram.com/taalogisticsinc/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaInstagram />
           </a>
-          <a className="icon-wrapper"
-          href="https://www.facebook.com/TAA.Logistics.Inc"
-          target="_blank"
-          rel="noopener noreferrer">
+          <a
+            className="icon-wrapper"
+            href="https://www.facebook.com/TAA.Logistics.Inc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaFacebook />
           </a>
-          <a className="icon-wrapper"
-          href="https://www.linkedin.com/company/taa-logistics-inc"
-          target="_blank"
-          rel="noopener noreferrer">
+          <a
+            className="icon-wrapper"
+            href="https://www.linkedin.com/company/taa-logistics-inc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaLinkedin />
           </a>
-          <a className="icon-wrapper"
-          href="https://www.youtube.com/@TAALogisticsInc"
-          target="_blank"
-          rel="noopener noreferrer">
+          <a
+            className="icon-wrapper"
+            href="https://www.youtube.com/@TAALogisticsInc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaYoutube />
           </a>
-          <a className="icon-wrapper"
-          href="https://www.tiktok.com/@taalogistics"
-          target="_blank"
-          rel="noopener noreferrer">
+          <a
+            className="icon-wrapper"
+            href="https://www.tiktok.com/@taalogistics"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaTiktok />
           </a>
         </div>
@@ -60,8 +72,6 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {/* <img src={GoogleReviewsLogo} alt="Leave us a review on google" /> */}
-          {/* <img src={Review} alt="Leave us a review on google"  /> */}
           Leave us a Review
         </a>
       </div>
@@ -74,38 +84,34 @@ function Footer() {
           Current EIA Gas Prices
         </a>
 
-        <p>©{getCurrentYear()} TAA Logistics, INC. All Rights Reserved.</p>
+        <p>©{getCurrentYear()} TAA Logistics, INC.</p>
       </div>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.footer`
-
-
   display: flex;
   flex-direction: column;
   background-color: var(--accent-white);
-  padding: 0 30px;
+  padding: 20px 30px;
 
-
-  .row{
+  .row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-bottom: 10px;
   }
 
-
-
-
-  .social-medias{
+  .social-medias {
     display: flex;
     gap: 10px;
     align-items: center;
   }
-  .icon-wrapper{
+
+  .icon-wrapper {
     background-color: black;
     display: flex;
     align-items: center;
@@ -113,13 +119,13 @@ const Wrapper = styled.footer`
     border-radius: 50%;
     width: 40px;
     height: 40px;
+  }
 
-  svg{
+  svg {
     color: var(--accent-white);
     height: 20px;
     width: 20px;
   }
-
 `;
 
 export default Footer;
