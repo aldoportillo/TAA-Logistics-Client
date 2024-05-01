@@ -1,5 +1,5 @@
-import background2 from "../assets/background2.webm";
-import samsara from "../assets/samsara_home.mp4";
+import background2 from "../assets/background2.gif";
+import samsara from "../assets/samsara.gif";
 import { Link } from "react-router-dom";
 import clmt from '../assets/clmt.jpg';
 import poweronlydivision from '../assets/poweronlydivision.jpeg';
@@ -112,12 +112,9 @@ function Home() {
       </div>
       <div className="mt-12">
         <div className="relative">
-          <video
+          <img
             src={background2}
             className="rounded-lg shadow-lg w-full h-96 object-cover"
-            autoPlay
-            controls={false}
-            loop
           />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white w-3/4">
             <h2 className="text-3xl font-bold">About Us</h2>
@@ -194,13 +191,7 @@ Appreciate All Of The Help, Thank You.&quot;
             </p>          
           </div>
           <div className="bg-white p-6 rounded-lg shadow-lg">
-          <video
-            src={samsara}
-            className="w-full h-60 object-cover rounded-t-lg mb-4"
-            autoPlay
-            loop
-            muted
-          />
+          <img src={samsara} className="w-full h-60 object-cover rounded-t-lg mb-4" />
             <h3 className="text-2xl font-semibold text-gray-800 mb-2">Track Your Shipment</h3>
             <p className="text-lg text-gray-600">
               With the use of SAMSARA, you can track your shipments on our trucks in real-time. This allows you to track your shipment and know when they will arrive.
