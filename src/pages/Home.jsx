@@ -115,6 +115,7 @@ function Home() {
           <img
             src={background2}
             className="rounded-lg shadow-lg w-full h-96 object-cover"
+            alt="drone hover over trucks"
           />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white w-3/4">
             <h2 className="text-3xl font-bold">About Us</h2>
@@ -184,6 +185,7 @@ Appreciate All Of The Help, Thank You.&quot;
             <img
             src={lovesGas}
             className="w-full h-60 object-cover rounded-t-lg mb-4"
+            alt="loves gas station"
           />
             <h3 className="text-2xl font-semibold mb-2 text-black">Routing Efficiency</h3>
             <p className="text-lg text-gray-600">
@@ -191,7 +193,7 @@ Appreciate All Of The Help, Thank You.&quot;
             </p>          
           </div>
           <div className="bg-white p-6 rounded-lg shadow-lg">
-          <img src={samsara} className="w-full h-60 object-cover rounded-t-lg mb-4" />
+          <img src={samsara} className="w-full h-60 object-cover rounded-t-lg mb-4" alt="samsara tracking" />
             <h3 className="text-2xl font-semibold text-gray-800 mb-2">Track Your Shipment</h3>
             <p className="text-lg text-gray-600">
               With the use of SAMSARA, you can track your shipments on our trucks in real-time. This allows you to track your shipment and know when they will arrive.
