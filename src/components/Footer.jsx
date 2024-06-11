@@ -7,7 +7,7 @@ import {
   FaYoutube,
   FaTiktok,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaTwitter } from "react-icons/fa6";
 
 function Footer() {
   const getCurrentYear = () => {
@@ -17,56 +17,63 @@ function Footer() {
   return (
     <Wrapper>
       <div className="row">
-        <div className="social-medias">
-          <a
-            className="icon-wrapper"
-            href="https://twitter.com/taalogistics"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaXTwitter />
-          </a>
-          <a
-            className="icon-wrapper"
-            href="https://www.instagram.com/taalogisticsinc/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            className="icon-wrapper"
-            href="https://www.facebook.com/TAA.Logistics.Inc"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebook />
-          </a>
-          <a
-            className="icon-wrapper"
-            href="https://www.linkedin.com/company/taa-logistics-inc"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            className="icon-wrapper"
-            href="https://www.youtube.com/@TAALogisticsInc"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaYoutube />
-          </a>
-          <a
-            className="icon-wrapper"
-            href="https://www.tiktok.com/@taalogistics"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTiktok />
-          </a>
-        </div>
+      <div className="social-medias">
+  <a
+    className="icon-wrapper"
+    href="https://twitter.com/taalogistics"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Follow TAA Logistics on Twitter"
+  >
+    <FaTwitter />
+  </a>
+  <a
+    className="icon-wrapper"
+    href="https://www.instagram.com/taalogisticsinc/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Follow TAA Logistics on Instagram"
+  >
+    <FaInstagram />
+  </a>
+  <a
+    className="icon-wrapper"
+    href="https://www.facebook.com/TAA.Logistics.Inc"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Follow TAA Logistics on Facebook"
+  >
+    <FaFacebook />
+  </a>
+  <a
+    className="icon-wrapper"
+    href="https://www.linkedin.com/company/taa-logistics-inc"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Connect with TAA Logistics on LinkedIn"
+  >
+    <FaLinkedin />
+  </a>
+  <a
+    className="icon-wrapper"
+    href="https://www.youtube.com/@TAALogisticsInc"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Subscribe to TAA Logistics on YouTube"
+  >
+    <FaYoutube />
+  </a>
+  <a
+    className="icon-wrapper"
+    href="https://www.tiktok.com/@taalogistics"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Follow TAA Logistics on TikTok"
+  >
+    <FaTiktok />
+  </a>
+</div>
+
         <a
           href="https://www.google.com/search?q=taa+logistics+inc+reviews&client=firefox-b-1-d&sca_esv=564462317&ei=UYj_ZJOIJ5qbptQPsbe5uAg&ved=0ahUKEwjT9L7uwaOBAxWajYkEHbFbDocQ4dUDCBA&uact=5&oq=taa+logistics+inc+reviews&gs_lp=Egxnd3Mtd2l6LXNlcnAiGXRhYSBsb2dpc3RpY3MgaW5jIHJldmlld3MyBRAAGKIESMQfULYJWKQccAF4AJABAJgBaaABnQWqAQM3LjG4AQPIAQD4AQHCAhAQLhgTGIAEGMcBGK8BGLADwgIJEAAYHhgTGLADwgIGEAAYFhgewgIFECEYoAHCAggQIRgWGB4YHeIDBBgBIEGIBgGQBgI&sclient=gws-wiz-serp#lrd=0x880e39fde452c845:0xa2a97699181a894d,1,,,,"
           target="_blank"

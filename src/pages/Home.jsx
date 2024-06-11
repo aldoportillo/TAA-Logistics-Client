@@ -94,7 +94,7 @@ function Home() {
           <div className="mt-6">
             <Link
               to="/rates"
-              className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 mr-4"
+              className="bg-blue-800 text-white font-bold py-2 px-4 rounded hover:bg-blue-900 mr-4"
             >
               Get Quote
             </Link>
