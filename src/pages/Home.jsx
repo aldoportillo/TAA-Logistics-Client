@@ -80,10 +80,10 @@ function Home() {
       <div className="flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2">
           <h1 className="text-4xl font-bold text-gray-800">
-            TAA Logistics Inc.
+            TAA Logistics Inc
           </h1>
           <p className="mt-4 text-gray-600">
-            TAA Logistics, Inc. is a rapidly expanding transportation company
+            TAA Logistics Inc. is a rapidly expanding transportation company
             based in the Midwest, with a team of skilled drivers experienced in
             intermodal transport operating our fleet of modern power units. Our
             fleet consists of over 30 fuel-efficient trucks, all equipped with
