@@ -35,12 +35,21 @@ function Header() {
   
   return (
     <Wrapper>
-      <Link to="/" onClick={handleLinkClick}><img src={Logo} alt="logo" /></Link>
+      <Link to="/" onClick={handleLinkClick}><img src={Logo} alt="TAA Logistics Inc Logo" /></Link>
+      <title className='sr-only'>TAA Logistics</title>
 
       {windowWidth <= 768 && (
-        <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} />
+        <Hamburger 
+        toggled={isMenuOpen} 
+        toggle={setIsMenuOpen} 
+        aria-expanded={isMenuOpen ? "true" : "false"}
+        role="button" 
+        aria-label="Hamburger Menu Button" 
+    />
+    
       )}
 
+      <title className='sr-only'>TAA Logistics Inc</title>
       <Nav isMenuOpen={isMenuOpen} handleLinkClick={handleLinkClick} />
     </Wrapper>
   )
