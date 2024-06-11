@@ -38,7 +38,14 @@ function Header() {
       <Link to="/" onClick={handleLinkClick}><img src={Logo} alt="logo" /></Link>
 
       {windowWidth <= 768 && (
-        <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} />
+        <Hamburger 
+        toggled={isMenuOpen} 
+        toggle={setIsMenuOpen} 
+        aria-expanded={isMenuOpen ? "true" : "false"}
+        role="button" 
+        aria-label="Hamburger Menu Button" 
+    />
+    
       )}
 
       <Nav isMenuOpen={isMenuOpen} handleLinkClick={handleLinkClick} />
