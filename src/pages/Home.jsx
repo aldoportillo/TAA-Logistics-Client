@@ -11,10 +11,17 @@ import secureyard from '../assets/secure_yard.jpg';
 import transloading from '../assets/transloading.jpg';
 import hazmat from '../assets/hazmat.jpeg';
 import lovesGas from '../assets/lovesGas.jpeg';
+import transloadingNew from '../assets/transloading.jpeg';
 import interModalContainer from '../assets/intermodal-container.jpeg';
 
 const service_data = {
   services: [
+    {
+      id: 0,
+      title: "Transloading",
+      description: "With a 50,000 SQF facility, we handle transloading for palletized goods, floor-loaded cartons, machinery, crates, molds, metal, and lumber, plus rework services for various freight types.",
+      image: transloadingNew,
+    },
     {
       id: 1,
       title: "Clean, Late Model Tractors",
@@ -57,12 +64,12 @@ const service_data = {
       description: "Our gated yard has over 100 secure parking spaces for storage of your goods until it is ready for delivery.",
       image: secureyard,
     },
-    {
-      id: 8,
-      title: "Transloading",
-      description: "Our access to containers, dry van trailers, and a trans-dock allows us to assist in getting your specific product needs to and from multiple locations.",
-      image: transloading,
-    },
+    // {
+    //   id: 8,
+    //   title: "Transloading",
+    //   description: "Our access to containers, dry van trailers, and a trans-dock allows us to assist in getting your specific product needs to and from multiple locations.",
+    //   image: transloading,
+    // },
     {
       id: 9,
       title: "HazMat",
