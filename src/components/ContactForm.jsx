@@ -29,7 +29,7 @@ function ContactForm() {
     e.preventDefault();
 
     axios
-      .post(`${import.meta.env.SERVER_URI}/inquiries.json`, formData)
+      .post(`${import.meta.env.VITE_SERVER_URI}/inquiries.json`, formData)
       .then((response) => {
         
         console.log(response);

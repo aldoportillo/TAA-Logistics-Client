@@ -92,7 +92,7 @@ function EmploymentForm() {
     e.preventDefault();
 
     axios
-      .post(`${import.meta.env.SERVER_URI}/applications.json`, formData)
+      .post(`${import.meta.env.VITE_SERVER_URI}/applications.json`, formData)
       .then((response) => {
         
         console.log(response);

@@ -45,7 +45,7 @@ const RatesForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    axios.post(`${import.meta.env.SERVER_URI}/quotes.json`, formData)
+    axios.post(`${import.meta.env.VITE_SERVER_URI}/quotes.json`, formData)
       .then((response) => {
         console.log(response);
         navigate("/quote-submitted", {state: { company_name: formData.company_name, contact_name: formData.contact_name, email: formData.email}}); 

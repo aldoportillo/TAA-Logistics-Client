@@ -20,7 +20,7 @@ function App() {
   const [events, setEvents] = useState([])
 
   useEffect(() => {
-    axios.get(`${import.meta.env.SERVER_URI}/events.json`)
+    axios.get(`${import.meta.env.VITE_SERVER_URI}/events.json`)
       .then((response) => setEvents(response.data))
       .catch((error) => console.log(error))
   }, [])
