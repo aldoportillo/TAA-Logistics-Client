@@ -92,7 +92,7 @@ function EmploymentForm() {
     e.preventDefault();
 
     axios
-      .post("https://taa-logistics-server.onrender.com/applications.json", formData)
+      .post(`${import.meta.env.SERVER_URI}/applications.json`, formData)
       .then((response) => {
         
         console.log(response);
