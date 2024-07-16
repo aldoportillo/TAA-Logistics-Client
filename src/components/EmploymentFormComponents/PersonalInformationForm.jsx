@@ -1,4 +1,3 @@
-import { states } from "../../data/states";
 import PropTypes from "prop-types";
 
 PersonalInformationForm.propTypes = {
@@ -14,9 +13,7 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
     return (
       formData.first_name.length > 0 &&
       formData.last_name.length > 0 &&
-      formData.address.length > 0 &&
-      formData.city.length > 0 &&
-      formData.zip.length > 0 &&
+      formData.phone_number.length > 0 &&
       formData.birthday.length > 0 &&
       formData.email.length > 0
     );
@@ -43,7 +40,7 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
           </div>
           <div>
             <label htmlFor="middle_initial" className="block">
-              Middle Initial *
+              Middle Initial 
             </label>
             <input
               type="text"
@@ -63,63 +60,6 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
               required
               onChange={handleChange}
               value={formData.last_name}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div className="col-span-3">
-            <label htmlFor="address" className="block">
-              Address *
-            </label>
-            <input
-              type="text"
-              id="address"
-              required
-              onChange={handleChange}
-              value={formData.address}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div>
-            <label htmlFor="city" className="block">
-              City *
-            </label>
-            <input
-              type="text"
-              id="city"
-              required
-              onChange={handleChange}
-              value={formData.city}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div>
-              <label htmlFor="state" className="block">
-                State *
-              </label>
-              <select
-                id="state"
-                required
-                onChange={handleChange}
-                value={formData.state}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              >
-                {states.map((state) => (
-                  <option key={state} value={state} default={null}>
-                    {state}
-                  </option>
-                ))}
-              </select>
-            </div>
-          <div>
-            <label htmlFor="zip" className="block">
-              Zip *
-            </label>
-            <input
-              type="text"
-              id="zip"
-              required
-              onChange={handleChange}
-              value={formData.zip}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
