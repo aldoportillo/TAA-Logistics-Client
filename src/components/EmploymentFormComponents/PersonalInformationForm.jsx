@@ -18,7 +18,6 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
       formData.city.length > 0 &&
       formData.zip.length > 0 &&
       formData.birthday.length > 0 &&
-      formData.phone_number.length > 0 &&
       formData.email.length > 0
     );
   }
@@ -94,25 +93,23 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
             />
           </div>
           <div>
-            <label htmlFor="state" className="block">
-              State
-            </label>
-            <select
-              id="state"
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            >
-              {states.map((state) => (
-                <option
-                  key={state}
-                  value={formData.state}
-                  onChange={handleChange}
-                >
-                  {state}
-                </option>
-              ))}
-            </select>
-          </div>
+              <label htmlFor="state" className="block">
+                State *
+              </label>
+              <select
+                id="state"
+                required
+                onChange={handleChange}
+                value={formData.state}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              >
+                {states.map((state) => (
+                  <option key={state} value={state} default={null}>
+                    {state}
+                  </option>
+                ))}
+              </select>
+            </div>
           <div>
             <label htmlFor="zip" className="block">
               Zip *
