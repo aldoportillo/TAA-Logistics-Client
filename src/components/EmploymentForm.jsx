@@ -7,6 +7,7 @@ import TrafficConvictionsForm from "./EmploymentFormComponents/TrafficConviction
 import AccidentRecordForm from "./EmploymentFormComponents/AccidentRecordForm";
 import { useNavigate } from "react-router-dom";
 import DrivingExperienceForm from "./EmploymentFormComponents/DrivingExperienceForm";
+import FMCSRForm from "./EmploymentFormComponents/FMCSRForm";
 
 function EmploymentForm() {
   const [formSection, setFormSection] = useState(0);
@@ -80,6 +81,11 @@ function EmploymentForm() {
     accident_fatalities_3: "",
     accident_injuries_3: "",
     accident_spill_3: "",
+    disqualified: "",
+    suspended: "",
+    denied: "",
+    tested_positive: "",
+    convicted_offenses: "",
   });
 
   const handleChange = (e) => {
@@ -92,7 +98,7 @@ function EmploymentForm() {
     e.preventDefault();
 
     axios
-      .post("https://taa-logistics-server.onrender.com/applications.json", formData)
+      .post(`${import.meta.env.VITE_SERVER_URI}/applications.json`, formData)
       .then((response) => {
         
         console.log(response);
@@ -140,6 +146,12 @@ function EmploymentForm() {
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={5}
+    />,
+    <FMCSRForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={6}
     />
   ];
 
