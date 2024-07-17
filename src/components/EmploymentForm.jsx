@@ -8,6 +8,8 @@ import AccidentRecordForm from "./EmploymentFormComponents/AccidentRecordForm";
 import { useNavigate } from "react-router-dom";
 import DrivingExperienceForm from "./EmploymentFormComponents/DrivingExperienceForm";
 import FMCSRForm from "./EmploymentFormComponents/FMCSRForm";
+import Intro from "./EmploymentFormComponents/Intro";
+import Requirements from "./EmploymentFormComponents/Requirements";
 
 function EmploymentForm() {
   const [formSection, setFormSection] = useState(0);
@@ -111,47 +113,49 @@ function EmploymentForm() {
   };
 
   const formComponents = [
+    <Intro formData={formData} handleChange={handleChange} setFormSection={setFormSection} key={0}/>,
+    <Requirements formData={formData} handleChange={handleChange} setFormSection={setFormSection} key={1}/>,
     <PersonalInformationForm
-      formData={formData}
-      setFormSection={setFormSection}
-      handleChange={handleChange}
-      key={0}
-    />,
-    <ResidencyHistoryForm
-      formData={formData}
-      setFormSection={setFormSection}
-      handleChange={handleChange}
-      key={1}
-    />,
-    <LicenseInformationForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={2}
     />,
-    <TrafficConvictionsForm
+    <ResidencyHistoryForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={3}
     />,
-    <DrivingExperienceForm
+    <LicenseInformationForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={4}
     />,
-    <AccidentRecordForm
+    <TrafficConvictionsForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={5}
     />,
-    <FMCSRForm
+    <DrivingExperienceForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={6}
+    />,
+    <AccidentRecordForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={7}
+    />,
+    <FMCSRForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={8}
     />
   ];
 
