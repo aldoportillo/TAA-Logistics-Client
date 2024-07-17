@@ -1,13 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PersonalInformationForm from "./EmploymentFormComponents/PersonalInformationForm";
 import ResidencyHistoryForm from "./EmploymentFormComponents/ResidencyHistoryForm";
 import LicenseInformationForm from "./EmploymentFormComponents/LicenseInformationForm";
 import TrafficConvictionsForm from "./EmploymentFormComponents/TrafficConvictionsForm";
 import AccidentRecordForm from "./EmploymentFormComponents/AccidentRecordForm";
-import { useNavigate } from "react-router-dom";
 import DrivingExperienceForm from "./EmploymentFormComponents/DrivingExperienceForm";
 import FMCSRForm from "./EmploymentFormComponents/FMCSRForm";
+import Intro from "./EmploymentFormComponents/Intro";
+import Requirements from "./EmploymentFormComponents/Requirements";
 
 function EmploymentForm() {
   const [formSection, setFormSection] = useState(0);
@@ -100,7 +102,6 @@ function EmploymentForm() {
     axios
       .post(`${import.meta.env.VITE_SERVER_URI}/applications.json`, formData)
       .then((response) => {
-        
         console.log(response);
         // Add logic for sending email  
         navigate("/application-submitted", {state: { first_name: formData.first_name, last_name: formData.last_name}}); 
@@ -111,52 +112,76 @@ function EmploymentForm() {
   };
 
   const formComponents = [
+    <Intro formData={formData} handleChange={handleChange} setFormSection={setFormSection} key={0}/>,
+    <Requirements formData={formData} handleChange={handleChange} setFormSection={setFormSection} key={1}/>,
     <PersonalInformationForm
-      formData={formData}
-      setFormSection={setFormSection}
-      handleChange={handleChange}
-      key={0}
-    />,
-    <ResidencyHistoryForm
-      formData={formData}
-      setFormSection={setFormSection}
-      handleChange={handleChange}
-      key={1}
-    />,
-    <LicenseInformationForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={2}
     />,
-    <TrafficConvictionsForm
+    <ResidencyHistoryForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={3}
     />,
-    <DrivingExperienceForm
+    <LicenseInformationForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={4}
     />,
-    <AccidentRecordForm
+    <TrafficConvictionsForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={5}
     />,
-    <FMCSRForm
+    <DrivingExperienceForm
       formData={formData}
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={6}
+    />,
+    <AccidentRecordForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={7}
+    />,
+    <FMCSRForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={8}
     />
   ];
 
+  const progressPercentage = (formSection / (formComponents.length - 1)) * 100;
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="relative pt-1">
+        <div className="flex mb-2 items-center justify-between">
+          <div>
+            <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+              Progress
+            </span>
+          </div>
+          <div className="text-right">
+            <span className="text-xs font-semibold inline-block text-blue-600">
+              {Math.round(progressPercentage)}%
+            </span>
+          </div>
+        </div>
+        <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
+          <div
+            style={{ width: `${progressPercentage}%` }}
+            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
+          ></div>
+        </div>
+      </div>
       {formComponents[formSection]}
     </form>
   );

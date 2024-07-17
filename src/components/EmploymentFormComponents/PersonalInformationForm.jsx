@@ -117,15 +117,23 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
         </div>
       </fieldset>
 
-      <button
-        className={`bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
-          isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 hover:bg-gray-500 cursor-not-allowed'
-        } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
-        onClick={() => setFormSection((prevValue) => prevValue + 1)}
-        disabled={!isFormValid()}
-      >
-        Next
-      </button>
+      <div className="grid grid-cols-2 gap-4">
+        <button
+          className="bg-gray-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          onClick={() => setFormSection((prevValue) => prevValue - 1)}
+        >
+          Previous
+        </button>
+        <button
+          className={`bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+            isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 hover:bg-gray-500 cursor-not-allowed'
+          } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
+          onClick={() => setFormSection((prevValue) => prevValue + 1)}
+          disabled={!isFormValid()}
+        >
+          Next
+        </button>
+      </div>
     </>
   );
 }
