@@ -18,75 +18,67 @@ function DrivingExperienceForm({ formData, handleChange, setFormSection }) {
     <>
       <fieldset className="border p-4 rounded">
         <legend className="font-semibold text-lg">Driving Experience</legend>
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Class of Equipment
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Type of Equipment
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  From
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  To
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Approx. No. of Miles (Total)
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {equipmentTypes.map(({ key, label }) => (
-                <tr key={key}>
-                  <td className="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {label}
-                  </td>
-                  <td className="px-4 py-3 whitespace-nowrap">
-                    <input
-                      type="text"
-                      id={`${key}_type`}
-                      value={formData[`${key}_type`]}
-                      onChange={handleChange}
-                      placeholder="e.g., Van, Flatbed, Tanker"
-                      className="block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                  </td>
-                  <td className="px-4 py-3 whitespace-nowrap">
+        {/* Header row — hidden on mobile, visible on sm+ */}
+        <div className="hidden sm:grid sm:grid-cols-5 gap-2 px-2 pb-1 border-b border-gray-200 bg-gray-50">
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Class of Equipment</span>
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Type of Equipment</span>
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">From</span>
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">To</span>
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Approx. Miles (Total)</span>
+        </div>
+
+        <div className="space-y-4 sm:space-y-2">
+          {equipmentTypes.map(({ key, label }) => (
+            <div key={key} className="border sm:border-0 border-gray-200 rounded-md sm:rounded-none p-3 sm:p-0 bg-gray-50 sm:bg-transparent sm:grid sm:grid-cols-5 sm:gap-2 sm:items-center sm:border-b sm:border-gray-100 sm:py-2">
+              <p className="text-sm font-medium text-gray-900 mb-3 sm:mb-0">{label}</p>
+              <div className="sm:contents">
+                <div className="mb-2 sm:mb-0">
+                  <label htmlFor={`${key}_type`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">Type of Equipment</label>
+                  <input
+                    type="text"
+                    id={`${key}_type`}
+                    value={formData[`${key}_type`]}
+                    onChange={handleChange}
+                    placeholder="e.g., Van, Flatbed, Tanker"
+                    className="block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-2 mb-2 sm:mb-0 sm:contents">
+                  <div>
+                    <label htmlFor={`${key}_from`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">From</label>
                     <input
                       type="date"
                       id={`${key}_from`}
                       value={formData[`${key}_from`]}
                       onChange={handleChange}
-                      className="block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
                     />
-                  </td>
-                  <td className="px-4 py-3 whitespace-nowrap">
+                  </div>
+                  <div>
+                    <label htmlFor={`${key}_to`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">To</label>
                     <input
                       type="date"
                       id={`${key}_to`}
                       value={formData[`${key}_to`]}
                       onChange={handleChange}
-                      className="block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
                     />
-                  </td>
-                  <td className="px-4 py-3 whitespace-nowrap">
-                    <input
-                      type="number"
-                      id={`${key}_miles`}
-                      value={formData[`${key}_miles`]}
-                      onChange={handleChange}
-                      placeholder="Total miles"
-                      className="block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor={`${key}_miles`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">Approx. No. of Miles (Total)</label>
+                  <input
+                    type="number"
+                    id={`${key}_miles`}
+                    value={formData[`${key}_miles`]}
+                    onChange={handleChange}
+                    placeholder="Total miles"
+                    className="block w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </fieldset>
 

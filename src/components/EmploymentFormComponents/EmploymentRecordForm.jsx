@@ -12,7 +12,6 @@ function EmploymentRecordForm({ formData, handleChange, setFormSection }) {
   const gaps = [1, 2, 3];
 
   const isFormValid = () => {
-    // At least first employer should be filled
     return (
       formData.employer_1_name.length > 0 &&
       formData.employer_1_street.length > 0 &&
@@ -42,15 +41,18 @@ function EmploymentRecordForm({ formData, handleChange, setFormSection }) {
           Must list the complete mailing address: street number and name, city, state, and zip code.
         </p>
 
-        <div className="space-y-8">
+        <div className="space-y-4 sm:space-y-8">
           {employers.map((num) => (
-            <div key={num} className="border-t pt-6 first:border-t-0 first:pt-0">
+            <div
+              key={num}
+              className="border border-gray-200 rounded-md p-4 bg-gray-50 sm:bg-transparent sm:border-0 sm:rounded-none sm:p-0 sm:border-t sm:pt-6 first:sm:border-t-0 first:sm:pt-0"
+            >
               <h3 className="font-medium text-gray-800 mb-4">
                 {getEmployerLabel(num)} {num === 1 && "*"}
               </h3>
 
               {/* Name and Phone */}
-              <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label htmlFor={`employer_${num}_name`} className="block text-sm">
                     Company Name {num === 1 && "*"}
@@ -78,8 +80,8 @@ function EmploymentRecordForm({ formData, handleChange, setFormSection }) {
               </div>
 
               {/* Address */}
-              <div className="grid grid-cols-4 gap-4 mb-4">
-                <div className="col-span-2">
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-4">
+                <div className="sm:col-span-2">
                   <label htmlFor={`employer_${num}_street`} className="block text-sm">
                     Street Address {num === 1 && "*"}
                   </label>
@@ -122,7 +124,8 @@ function EmploymentRecordForm({ formData, handleChange, setFormSection }) {
                 </div>
               </div>
 
-              <div className="grid grid-cols-4 gap-4 mb-4">
+              {/* Zip, Position, Salary */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                 <div>
                   <label htmlFor={`employer_${num}_zip`} className="block text-sm">
                     Zip Code
@@ -161,8 +164,8 @@ function EmploymentRecordForm({ formData, handleChange, setFormSection }) {
                 </div>
               </div>
 
-              {/* Dates */}
-              <div className="grid grid-cols-4 gap-4 mb-4">
+              {/* Dates and Reason */}
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-4">
                 <div>
                   <label htmlFor={`employer_${num}_from`} className="block text-sm">
                     From {num === 1 && "*"}
@@ -187,7 +190,7 @@ function EmploymentRecordForm({ formData, handleChange, setFormSection }) {
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="sm:col-span-2">
                   <label htmlFor={`employer_${num}_reason_for_leaving`} className="block text-sm">
                     Reason for Leaving
                   </label>
@@ -202,7 +205,7 @@ function EmploymentRecordForm({ formData, handleChange, setFormSection }) {
               </div>
 
               {/* FMCSR Questions */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor={`employer_${num}_subject_to_fmcsa`} className="block text-sm">
                     Were you subject to the Federal Motor Carrier Safety Regulations (FMCSRs) while employed by this employer?
@@ -245,44 +248,60 @@ function EmploymentRecordForm({ formData, handleChange, setFormSection }) {
         <p className="text-sm text-gray-600 mb-4">
           Any gaps in employment and/or unemployment must be explained. Include dates (month/year) and reason.
         </p>
-        <div className="space-y-4">
+
+        {/* Header row — hidden on mobile, visible on sm+ */}
+        <div className="hidden sm:grid sm:grid-cols-5 gap-4 px-2 pb-1 border-b border-gray-200 bg-gray-50">
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">From</span>
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">To</span>
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider sm:col-span-3">Reason</span>
+        </div>
+
+        <div className="space-y-4 sm:space-y-2">
           {gaps.map((num) => (
-            <div key={num} className="grid grid-cols-5 gap-4">
-              <div>
-                <label htmlFor={`gap_${num}_from`} className="block text-sm">
-                  From
-                </label>
-                <input
-                  type="date"
-                  id={`gap_${num}_from`}
-                  onChange={handleChange}
-                  value={formData[`gap_${num}_from`]}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                />
-              </div>
-              <div>
-                <label htmlFor={`gap_${num}_to`} className="block text-sm">
-                  To
-                </label>
-                <input
-                  type="date"
-                  id={`gap_${num}_to`}
-                  onChange={handleChange}
-                  value={formData[`gap_${num}_to`]}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                />
-              </div>
-              <div className="col-span-3">
-                <label htmlFor={`gap_${num}_reason`} className="block text-sm">
-                  Reason
-                </label>
-                <input
-                  type="text"
-                  id={`gap_${num}_reason`}
-                  onChange={handleChange}
-                  value={formData[`gap_${num}_reason`]}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                />
+            <div
+              key={num}
+              className="border sm:border-0 border-gray-200 rounded-md sm:rounded-none p-3 sm:p-0 bg-gray-50 sm:bg-transparent sm:grid sm:grid-cols-5 sm:gap-4 sm:items-start sm:border-b sm:border-gray-100 sm:py-2"
+            >
+              <p className="text-sm font-medium text-gray-700 mb-3 sm:hidden">Gap {num}</p>
+              <div className="sm:contents">
+                <div className="grid grid-cols-2 gap-3 mb-3 sm:mb-0 sm:contents">
+                  <div>
+                    <label htmlFor={`gap_${num}_from`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">
+                      From
+                    </label>
+                    <input
+                      type="date"
+                      id={`gap_${num}_from`}
+                      onChange={handleChange}
+                      value={formData[`gap_${num}_from`]}
+                      className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor={`gap_${num}_to`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">
+                      To
+                    </label>
+                    <input
+                      type="date"
+                      id={`gap_${num}_to`}
+                      onChange={handleChange}
+                      value={formData[`gap_${num}_to`]}
+                      className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </div>
+                </div>
+                <div className="sm:col-span-3">
+                  <label htmlFor={`gap_${num}_reason`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">
+                    Reason
+                  </label>
+                  <input
+                    type="text"
+                    id={`gap_${num}_reason`}
+                    onChange={handleChange}
+                    value={formData[`gap_${num}_reason`]}
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  />
+                </div>
               </div>
             </div>
           ))}
@@ -301,7 +320,7 @@ function EmploymentRecordForm({ formData, handleChange, setFormSection }) {
           type="button"
           disabled={!isFormValid()}
           className={`bg-blue-500 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
-            isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 hover:bg-gray-500 cursor-not-allowed'
+            isFormValid() ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 hover:bg-gray-500 cursor-not-allowed"
           } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
           onClick={() => setFormSection((prevValue) => prevValue + 1)}
         >

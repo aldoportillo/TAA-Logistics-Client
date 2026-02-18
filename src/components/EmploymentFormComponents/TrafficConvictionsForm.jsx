@@ -8,6 +8,8 @@ TrafficConvictionsForm.propTypes = {
 };
 
 function TrafficConvictionsForm({ formData, handleChange, setFormSection }) {
+  const convictions = [1, 2, 3];
+
   return (
     <>
       <fieldset className="border p-4 rounded">
@@ -15,177 +17,79 @@ function TrafficConvictionsForm({ formData, handleChange, setFormSection }) {
           Traffic Convictions and Forfeitures for the Past 3 Years
         </legend>
         <p className="text-sm text-gray-600 mb-4">(Other than parking violations)</p>
-        <div className="space-y-4">
-          {/* Conviction 1 */}
-          <div className="grid grid-cols-4 gap-4">
-            <div>
-              <label htmlFor="conviction_1_date" className="block">
-                Date Convicted
-              </label>
-              <input
-                type="date"
-                id="conviction_1_date"
-                onChange={handleChange}
-                value={formData.conviction_1_date}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="conviction_1_violation" className="block">
-                Violation
-              </label>
-              <input
-                type="text"
-                id="conviction_1_violation"
-                onChange={handleChange}
-                value={formData.conviction_1_violation}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="conviction_1_state" className="block">
-                State of Violation
-              </label>
-              <select
-                id="conviction_1_state"
-                onChange={handleChange}
-                value={formData.conviction_1_state}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              >
-                {states.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="conviction_1_penalty" className="block">
-                Penalty
-              </label>
-              <input
-                type="text"
-                id="conviction_1_penalty"
-                onChange={handleChange}
-                value={formData.conviction_1_penalty}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
-            </div>
-          </div>
 
-          {/* Conviction 2 */}
-          <div className="grid grid-cols-4 gap-4">
-            <div>
-              <label htmlFor="conviction_2_date" className="block">
-                Date Convicted
-              </label>
-              <input
-                type="date"
-                id="conviction_2_date"
-                onChange={handleChange}
-                value={formData.conviction_2_date}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="conviction_2_violation" className="block">
-                Violation
-              </label>
-              <input
-                type="text"
-                id="conviction_2_violation"
-                onChange={handleChange}
-                value={formData.conviction_2_violation}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="conviction_2_state" className="block">
-                State of Violation
-              </label>
-              <select
-                id="conviction_2_state"
-                onChange={handleChange}
-                value={formData.conviction_2_state}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              >
-                {states.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="conviction_2_penalty" className="block">
-                Penalty
-              </label>
-              <input
-                type="text"
-                id="conviction_2_penalty"
-                onChange={handleChange}
-                value={formData.conviction_2_penalty}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
-            </div>
-          </div>
+        {/* Header row — hidden on mobile, visible on sm+ */}
+        <div className="hidden sm:grid sm:grid-cols-4 gap-4 px-2 pb-1 border-b border-gray-200 bg-gray-50">
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Date Convicted</span>
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Violation</span>
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">State of Violation</span>
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Penalty</span>
+        </div>
 
-          {/* Conviction 3 */}
-          <div className="grid grid-cols-4 gap-4">
-            <div>
-              <label htmlFor="conviction_3_date" className="block">
-                Date Convicted
-              </label>
-              <input
-                type="date"
-                id="conviction_3_date"
-                onChange={handleChange}
-                value={formData.conviction_3_date}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
+        <div className="space-y-4 sm:space-y-2">
+          {convictions.map((num) => (
+            <div
+              key={num}
+              className="border sm:border-0 border-gray-200 rounded-md sm:rounded-none p-3 sm:p-0 bg-gray-50 sm:bg-transparent sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-b sm:border-gray-100 sm:py-2"
+            >
+              <p className="text-sm font-medium text-gray-700 mb-3 sm:hidden">Conviction {num}</p>
+              <div className="sm:contents">
+                <div className="mb-3 sm:mb-0">
+                  <label htmlFor={`conviction_${num}_date`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">
+                    Date Convicted
+                  </label>
+                  <input
+                    type="date"
+                    id={`conviction_${num}_date`}
+                    onChange={handleChange}
+                    value={formData[`conviction_${num}_date`]}
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  />
+                </div>
+                <div className="mb-3 sm:mb-0">
+                  <label htmlFor={`conviction_${num}_violation`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">
+                    Violation
+                  </label>
+                  <input
+                    type="text"
+                    id={`conviction_${num}_violation`}
+                    onChange={handleChange}
+                    value={formData[`conviction_${num}_violation`]}
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  />
+                </div>
+                <div className="mb-3 sm:mb-0">
+                  <label htmlFor={`conviction_${num}_state`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">
+                    State of Violation
+                  </label>
+                  <select
+                    id={`conviction_${num}_state`}
+                    onChange={handleChange}
+                    value={formData[`conviction_${num}_state`]}
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  >
+                    {states.map((state) => (
+                      <option key={state} value={state}>
+                        {state}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor={`conviction_${num}_penalty`} className="block text-xs text-gray-500 uppercase mb-1 sm:hidden">
+                    Penalty
+                  </label>
+                  <input
+                    type="text"
+                    id={`conviction_${num}_penalty`}
+                    onChange={handleChange}
+                    value={formData[`conviction_${num}_penalty`]}
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label htmlFor="conviction_3_violation" className="block">
-                Violation
-              </label>
-              <input
-                type="text"
-                id="conviction_3_violation"
-                onChange={handleChange}
-                value={formData.conviction_3_violation}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="conviction_3_state" className="block">
-                State of Violation
-              </label>
-              <select
-                id="conviction_3_state"
-                onChange={handleChange}
-                value={formData.conviction_3_state}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              >
-                {states.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="conviction_3_penalty" className="block">
-                Penalty
-              </label>
-              <input
-                type="text"
-                id="conviction_3_penalty"
-                onChange={handleChange}
-                value={formData.conviction_3_penalty}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              />
-            </div>
-          </div>
+          ))}
         </div>
       </fieldset>
       <div className="grid grid-cols-2 gap-4">

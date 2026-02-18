@@ -97,13 +97,13 @@ function FMCSRForm({ formData, handleChange, setFormSection }) {
             </p>
             <div className="space-y-4 ml-4">
               {offenseQuestions.map(({ id, label }) => (
-                <div key={id} className="flex items-start gap-4">
+                <div key={id} className="flex flex-col sm:flex-row items-start gap-4">
                   <div className="flex-1">
                     <label htmlFor={id} className="block text-sm text-gray-600">
                       {label}
                     </label>
                   </div>
-                  <div className="w-32">
+                  <div className="w-full sm:w-32">
                     <select
                       id={id}
                       value={formData[id]}

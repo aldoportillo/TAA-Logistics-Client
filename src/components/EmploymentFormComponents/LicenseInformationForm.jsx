@@ -33,7 +33,7 @@ function LicenseInformationForm({ handleChange, formData, setFormSection }) {
           certify that I do not have more then one motor vehicle license, the
           information for which is listed below.
         </p>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div>
             <label htmlFor="license_state" className="block">
               State *

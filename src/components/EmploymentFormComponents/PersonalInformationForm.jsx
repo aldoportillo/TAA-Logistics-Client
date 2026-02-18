@@ -27,7 +27,7 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
     <>
       <fieldset className="border p-4 rounded">
         <legend className="font-semibold text-lg">Personal Information</legend>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label htmlFor="first_name" className="block">
               First Name *
@@ -68,7 +68,7 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-4 mt-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
           <div className="col-span-2">
             <label htmlFor="street" className="block">
               Street Address *
@@ -115,7 +115,7 @@ function PersonalInformationForm({ formData, handleChange, setFormSection }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-4 mt-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
           <div>
             <label htmlFor="zip" className="block">
               Zip Code *

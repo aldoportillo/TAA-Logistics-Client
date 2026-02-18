@@ -110,12 +110,15 @@ const Wrapper = styled.footer`
     align-items: center;
     width: 100%;
     margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .social-medias {
     display: flex;
     gap: 10px;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .icon-wrapper {
@@ -132,6 +135,20 @@ const Wrapper = styled.footer`
     color: var(--accent-white);
     height: 20px;
     width: 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 16px;
+
+    .row {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .social-medias {
+      justify-content: center;
+    }
   }
 `;
 
