@@ -71,6 +71,7 @@ const Wrapper = styled.nav`
   display: flex;
   gap: 20px;
   justify-content: space-around;
+  z-index: 1;
 
  
 

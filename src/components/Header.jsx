@@ -68,7 +68,7 @@ const Wrapper = styled.header`
   }
 
   .hamburger-react {
-    z-index: 1;
+    z-index: 2;
   }
 `;
 
