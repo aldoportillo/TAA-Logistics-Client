@@ -8,86 +8,157 @@ import TrafficConvictionsForm from "./EmploymentFormComponents/TrafficConviction
 import AccidentRecordForm from "./EmploymentFormComponents/AccidentRecordForm";
 import DrivingExperienceForm from "./EmploymentFormComponents/DrivingExperienceForm";
 import FMCSRForm from "./EmploymentFormComponents/FMCSRForm";
+import EmploymentRecordForm from "./EmploymentFormComponents/EmploymentRecordForm";
+import SignatureForm from "./EmploymentFormComponents/SignatureForm";
 import Intro from "./EmploymentFormComponents/Intro";
 import Requirements from "./EmploymentFormComponents/Requirements";
 
 function EmploymentForm() {
   const [formSection, setFormSection] = useState(0);
   const [formData, setFormData] = React.useState({
+    // Personal Information
     first_name: "",
-    middle_initial: "",
+    middle_name: "",
     last_name: "",
-    address: "",
+    street: "",
     city: "",
     state: "",
     zip: "",
-    birthday: "",
+    date_of_birth: "",
     ssn: "",
-    phone_number: "",
+    phone: "",
     email: "",
-    residency_address_1: "",
-    residency_city_1: "",
-    residency_state_1: "",
-    residency_zip_1: "",
-    residency_address_2: "",
-    residency_city_2: "",
-    residency_state_2: "",
-    residency_zip_2: "",
-    residency_address_3: "",
-    residency_city_3: "",
-    residency_state_3: "",
-    residency_zip_3: "",
+    // Residency History (3 entries with duration)
+    residence_1_street: "",
+    residence_1_city: "",
+    residence_1_state: "",
+    residence_1_zip: "",
+    residence_1_duration: "",
+    residence_2_street: "",
+    residence_2_city: "",
+    residence_2_state: "",
+    residence_2_zip: "",
+    residence_2_duration: "",
+    residence_3_street: "",
+    residence_3_city: "",
+    residence_3_state: "",
+    residence_3_zip: "",
+    residence_3_duration: "",
+    // License Information
     license_state: "",
     license_number: "",
     license_type: "",
     license_expiration_date: "",
-    conviction_date_1: "",
-    conviction_violation_1: "",
-    conviction_state_1: "",
-    conviction_penalty_1: "",
-    conviction_date_2: "",
-    conviction_violation_2: "",
-    conviction_state_2: "",
-    conviction_penalty_2: "",
-    conviction_date_3: "",
-    conviction_violation_3: "",
-    conviction_state_3: "",
-    conviction_penalty_3: "",
-    experience_class_1: "",
-    experience_type_1: "",
-    experience_start_date_1: "",
-    experience_end_date_1: "",
-    experience_miles_1: "",
-    experience_class_2: "",
-    experience_type_2: "",
-    experience_start_date_2: "",
-    experience_end_date_2: "",
-    experience_miles_2: "",
-    experience_class_3: "",
-    experience_type_3: "",
-    experience_start_date_3: "",
-    experience_end_date_3: "",
-    experience_miles_3: "",
-    accident_date_1: "",
-    accident_nature_1: "",
-    accident_fatalities_1: "",
-    accident_injuries_1: "",
-    accident_spill_1: "",
-    accident_date_2: "",
-    accident_nature_2: "",
-    accident_fatalities_2: "",
-    accident_injuries_2: "",
-    accident_spill_2: "",
-    accident_date_3: "",
-    accident_nature_3: "",
-    accident_fatalities_3: "",
-    accident_injuries_3: "",
-    accident_spill_3: "",
-    disqualified: "",
-    suspended: "",
-    denied: "",
-    tested_positive: "",
-    convicted_offenses: "",
+    // Traffic Convictions (3 entries)
+    conviction_1_date: "",
+    conviction_1_violation: "",
+    conviction_1_state: "",
+    conviction_1_penalty: "",
+    conviction_2_date: "",
+    conviction_2_violation: "",
+    conviction_2_state: "",
+    conviction_2_penalty: "",
+    conviction_3_date: "",
+    conviction_3_violation: "",
+    conviction_3_state: "",
+    conviction_3_penalty: "",
+    // Driving Experience (by equipment type)
+    straight_truck_type: "",
+    straight_truck_from: "",
+    straight_truck_to: "",
+    straight_truck_miles: "",
+    tractor_semi_type: "",
+    tractor_semi_from: "",
+    tractor_semi_to: "",
+    tractor_semi_miles: "",
+    tractor_two_trailers_type: "",
+    tractor_two_trailers_from: "",
+    tractor_two_trailers_to: "",
+    tractor_two_trailers_miles: "",
+    other_equipment_type: "",
+    other_equipment_from: "",
+    other_equipment_to: "",
+    other_equipment_miles: "",
+    // Accident Record (3 entries)
+    accident_1_date: "",
+    accident_1_nature: "",
+    accident_1_fatalities: "",
+    accident_1_injuries: "",
+    accident_1_chemical_spill: "",
+    accident_2_date: "",
+    accident_2_nature: "",
+    accident_2_fatalities: "",
+    accident_2_injuries: "",
+    accident_2_chemical_spill: "",
+    accident_3_date: "",
+    accident_3_nature: "",
+    accident_3_fatalities: "",
+    accident_3_injuries: "",
+    accident_3_chemical_spill: "",
+    // FMCSR Questions (individual boolean fields)
+    currently_disqualified: "",
+    license_suspended: "",
+    license_denied: "",
+    positive_drug_test_last_2_years: "",
+    bac_over_point04: "",
+    dui: "",
+    refused_testing: "",
+    controlled_substance_violation: "",
+    drug_transport_possession: "",
+    left_scene_of_accident: "",
+    // Employment Record (3 employers)
+    employer_1_name: "",
+    employer_1_street: "",
+    employer_1_city: "",
+    employer_1_state: "",
+    employer_1_zip: "",
+    employer_1_phone: "",
+    employer_1_position: "",
+    employer_1_salary: "",
+    employer_1_from: "",
+    employer_1_to: "",
+    employer_1_reason_for_leaving: "",
+    employer_1_subject_to_fmcsa: "",
+    employer_1_safety_sensitive: "",
+    employer_2_name: "",
+    employer_2_street: "",
+    employer_2_city: "",
+    employer_2_state: "",
+    employer_2_zip: "",
+    employer_2_phone: "",
+    employer_2_position: "",
+    employer_2_salary: "",
+    employer_2_from: "",
+    employer_2_to: "",
+    employer_2_reason_for_leaving: "",
+    employer_2_subject_to_fmcsa: "",
+    employer_2_safety_sensitive: "",
+    employer_3_name: "",
+    employer_3_street: "",
+    employer_3_city: "",
+    employer_3_state: "",
+    employer_3_zip: "",
+    employer_3_phone: "",
+    employer_3_position: "",
+    employer_3_salary: "",
+    employer_3_from: "",
+    employer_3_to: "",
+    employer_3_reason_for_leaving: "",
+    employer_3_subject_to_fmcsa: "",
+    employer_3_safety_sensitive: "",
+    // Gap Explanation (3 gaps)
+    gap_1_from: "",
+    gap_1_to: "",
+    gap_1_reason: "",
+    gap_2_from: "",
+    gap_2_to: "",
+    gap_2_reason: "",
+    gap_3_from: "",
+    gap_3_to: "",
+    gap_3_reason: "",
+    // E-Signature
+    esign_consent: false,
+    signature_full_name: "",
   });
 
   const handleChange = (e) => {
@@ -100,11 +171,11 @@ function EmploymentForm() {
     e.preventDefault();
 
     axios
-      .post(`${import.meta.env.VITE_SERVER_URI}/applications.json`, formData)
+      .post(`${import.meta.env.VITE_SERVER_URI}/applications.json`, { application: formData })
       .then((response) => {
         console.log(response);
-        // Add logic for sending email  
-        navigate("/application-submitted", {state: { first_name: formData.first_name, last_name: formData.last_name}}); 
+        // Add logic for sending email
+        navigate("/application-submitted", {state: { first_name: formData.first_name, last_name: formData.last_name}});
       })
       .catch((error) => {
         console.error(error);
@@ -155,6 +226,19 @@ function EmploymentForm() {
       setFormSection={setFormSection}
       handleChange={handleChange}
       key={8}
+    />,
+    <EmploymentRecordForm
+      formData={formData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={9}
+    />,
+    <SignatureForm
+      formData={formData}
+      setFormData={setFormData}
+      setFormSection={setFormSection}
+      handleChange={handleChange}
+      key={10}
     />
   ];
 
